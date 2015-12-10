@@ -22,6 +22,11 @@ app.use(session({
 }));
 // express-session has a touch option to update max age
 
+app.get('/', function(req, res) {
+console.log('session', req.session);
+  	res.render( 'index', { title : 'Express Todo Example'});
+});
+
 // app.get('/', function(req, res) {
 // console.log('session', req.session);
 //   yelp.request_yelp({ term: req.query.term }, function(err, response, body) {
