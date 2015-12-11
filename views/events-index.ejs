@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<%- include _head.ejs %>
+
+<body>
+  <%- include _navbar.ejs %>
+  
+  <div class="jumbotron bpe-jumbotron">
+    <h1>Events Center</h1>
+    <hr>
+    <h4>Greeting!
+                <% if (user && user.email) { %>
+                  You're logged in as <%= user.email %>!</h1>
+                  <a href="/logout" class="btn btn-default" id="logout">Log Out</a>
+                <% } else { %>
+                  You're not logged in. </h4>
+                  <a href="/">Log in</a>
+                <% } %>
+    </div>
+   <div class="container events">
+      <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+      
+     <form id ="newEvent">
+        <legend>Create new Event</legend>
+      <input name="name" type="text" class="form-control" id="chatroom" placeholder="Event Name">
+      <input name="detail" type="text" class="form-control" placeholder="Event Detail">
+      <button type="submit" class="btn btn-primary">Add</button>
+     </form>
+
+          <div class="list-group events" id="events-ul">
+          <h3>Event Lists</h3>
+          <% events.forEach(function(event) { %>
+  
+            <p><a href="/chats/<%= chat._id %>"><%= event.name %> <%= event.number %></a><span data-id="<%= chat._id %>" class='glyphicon glyphicon-hdd pull-right'></span></p>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+    </div>   
+    </body>
+  </html>
