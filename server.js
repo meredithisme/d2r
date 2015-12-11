@@ -23,8 +23,7 @@ app.use(session({
 // express-session has a touch option to update max age
 
 app.get('/', function(req, res) {
-console.log('session', req.session);
-  	res.render( 'index', { title : 'Express Todo Example'});
+  res.render("index");
 });
 
 // app.get('/', function(req, res) {
@@ -85,50 +84,111 @@ app.get('/:yelp_id/addReview', function (req, res){
 app.get('/signup', function (req, res){
 	// renders a sign up form
 	res.render('signup');
-
 });
 
-app.post('/signupUser', function (req, res){
-	var newUser = req.body; 
-	// create a user and save into my mongoose
-	console.log(newUser);
-	db.User.createSecure(newUser.email, newUser.password, function(err, user) {
-		console.log('omg', err);
-		req.session.userId = user._id;
-		req.session.user = user;
-		res.json(user);
-	
-	});
-});
-
-// show the login form
-app.get('/login', function (req, res) {
-  res.render('login');
+app.post('/users', function (req, res) {
+  console.log(req.body);
+  db.User.createSecure(req.body.email, req.body.password, function (err, newUser) {
+    req.session.userId = newUser._id;
+    if(err){
+      console.log(err);
+    } else {
+      res.json(newUser);
+    }
+    //res.redirect('/chatcenter');
+  });
 });
 
 // authenticate the user and set the session
 app.post('/sessions', function (req, res) {
-	console.log('body:',req.body);
+  console.log('attempted signin: ', req.body);
   // call authenticate function to check if password user entered is correct
   db.User.authenticate(req.body.email, req.body.password, function (err, loggedInUser) {
     if (err){
       console.log('authentication error: ', err);
       res.status(500).send();
-    } else {
-      console.log('setting sesstion user id ', loggedInUser._id);
-      req.session.userId = loggedInUser._id;
       res.redirect('/');
+    } else {
+      console.log('setting session user id ', loggedInUser._id);
+      req.session.userId = loggedInUser._id;
+      if(err){
+        console.log(err);
+      } else {
+        res.json(loggedInUser);
+      }
+      //res.redirect('/chatcenter');
     }
   });
 });
 
+//loged in main page
+// shows all chats
+app.get('/chatcenter', function (req, res) {
+  console.log('session user id: ', req.session.userId);
+  // find the user currently logged in
+  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    if (err){
+      console.log('database error: ', err);
+      res.redirect('/');
+    } else {
+      // render profile template with user's data
+      console.log('loading profile of logged in user: ', currentUser);
+  }
+  db.Chat.find({}, function(err, chats){
+    if (err) { res.json(err) }
+      console.log("chats to load for conversations-index", chats);
+    res.render('conversations-index',{chats: chats, user: currentUser});
+  })
+});
+});
 
 app.get('/logout', function (req, res) {
   // remove the session user id
   req.session.userId = null;
   // redirect to login (for now)
-  res.redirect('/login');
+  res.redirect('/');
 });
+// app.post('/signupUser', function (req, res){
+// 	var newUser = req.body; 
+// 	// create a user and save into my mongoose
+// 	console.log(newUser);
+// 	db.User.createSecure(newUser.email, newUser.password, function(err, user) {
+// 		console.log('omg', err);
+// 		req.session.userId = user._id;
+// 		req.session.user = user;
+// 		res.json(user);
+	
+// 	});
+// });
+
+// // show the login form
+// app.get('/login', function (req, res) {
+//   res.render('login');
+// });
+
+// // authenticate the user and set the session
+// app.post('/sessions', function (req, res) {
+// 	console.log('body:',req.body);
+//   // call authenticate function to check if password user entered is correct
+//   db.User.authenticate(req.body.email, req.body.password, function (err, loggedInUser) {
+//     if (err){
+//       console.log('authentication error: ', err);
+//       res.status(500).send();
+//     } else {
+//       console.log('setting sesstion user id ', loggedInUser._id);
+//       req.session.userId = loggedInUser._id;
+//       res.redirect('/');
+//     }
+//   });
+// });
+
+
+// app.get('/logout', function (req, res) {
+//   // remove the session user id
+//   req.session.userId = null;
+//   // redirect to login (for now)
+//   res.redirect('/login');
+// });
 
 // app.post('/:yelp_id/createReview', function (req, res){
 // 	// save the req.body into the proper user -> reviews array

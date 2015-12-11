@@ -7,8 +7,8 @@ var UserSchema = new Schema({
 	passwordDigest: { type: String, required: true, select: false },
 	first_name: String,
 	last_name: String,
-	reviews: [{type: Schema.Types.ObjectId, ref: 'Review'}],
-	allergies: Array
+	events: [{type: Schema.Types.ObjectId, ref: 'Events'}],
+	RSVP: Array
 });
 
 
