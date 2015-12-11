@@ -1,58 +1,71 @@
-var mongoose= require('mongoose');
-var bcrypt = require('bcrypt');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+  Schema = mongoose.Schema,
+  bcrypt = require('bcrypt');
 
-var UserSchema = new Schema({
-	email: {type:String, required: true},
-	passwordDigest: { type: String, required: true, select: false },
-	first_name: String,
-	last_name: String,
-	events: [{type: Schema.Types.ObjectId, ref: 'Events'}],
-	RSVP: Array
+var Event = require('./event.js');
+// var Message = require('./message.js');
+var Rsvp = require('./rsvp.js');
+
+// also see express heroku app (linked in funnybiz)
+var userSchema = new Schema({
+  email: { type: String,
+            required: true,
+            unique: true
+          },
+  passwordDigest: String,
+  events: [{ type: Schema.ObjectId, ref: 'Event' }]
 });
 
+// use form data to create db user, with a hashed and salted password
+userSchema.statics.createSecure = function (email, password, callback) {
+  // `this` references our User model
+  // store it in variable `UserModel` because `this` changes context in nested callbacks
 
-/*======================================================================*/
+  var UserModel = this;
 
+  // hash password user enters at sign up
+  bcrypt.genSalt(function (err, salt) {
+    console.log('salt: ', salt);  // changes every time
+    bcrypt.hash(password, salt, function (err, hash) {
 
-UserSchema.statics.createSecure = function (email, password, callback) {
-	var user = this;
-
-	bcrypt.genSalt(function (err, salt) {
-		bcrypt.hash(password, salt, function (err, hash) {
-			console.log(hash);
-			user.create({
-				email: email,
-				passwordDigest: hash
-			}, callback);
-		});
-	});
- };
-
-/*======================================================================*/
-
-
-UserSchema.statics.authenticate = function (email, password, callback) {
-	this.findOne({email: email}, 'email passwordDigest', function(err, foundUser) {
-		console.log('found user:',foundUser);
-		console.log(password);
-		if(!foundUser) {
-			console.log("no user lives here" + email);
-			callback("Error: no user found", null);
-		} else if (foundUser.checkPassword(password)) {
-			callback(null, foundUser);
-		} else {
-			callback("error: incorrect password", null);
-		}
-	});
+      // create the new user (save to db) with hashed password
+      UserModel.create({
+        email: email,
+        passwordDigest: hash
+      }, callback);
+    });
+  });
 };
 
-/*======================================================================*/
 
-UserSchema.methods.checkPassword = function(password) {
-	console.log('this', this);
-	return bcrypt.compareSync(password, this.passwordDigest);
+// authenticate user (when user logs in)
+userSchema.statics.authenticate = function (email, password, callback) {
+  // find user by email entered at log in
+  // remember, this is the User Model
+
+  this.findOne({email: email}, function (err, foundUser) {
+    console.log(foundUser);
+
+    // throw error if can't find user
+    if (!foundUser) {
+      console.log('No user with email ' + email);
+      callback("Error: no user found", null);  // better error structures are available, but a string is good enough for now
+    // if we found a user, check if password is correct
+    } else if (foundUser.checkPassword(password)) {
+      callback(null, foundUser);
+    } else {
+      callback("Error: incorrect password", null);
+    }
+  });
 };
 
-var User = mongoose.model('User', UserSchema);
-module.exports= User;
+// compare password user enters with hashed password (`passwordDigest`)
+userSchema.methods.checkPassword = function (password) {
+  // run hashing algorithm (with salt) on password user enters in order to compare with `passwordDigest`
+  return bcrypt.compareSync(password, this.passwordDigest);
+};
+
+var User = mongoose.model('User', userSchema);
+
+// export user model
+module.exports = User;

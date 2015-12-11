@@ -26,67 +26,16 @@ app.get('/', function(req, res) {
   res.render("index");
 });
 
-// app.get('/', function(req, res) {
-// console.log('session', req.session);
-//   yelp.request_yelp({ term: req.query.term }, function(err, response, body) {
-//   	db.User.findOne({_id: req.session.userId}, function(err, user){
-//   	  	res.render("index", { yelpResults: body, user: user });
-//   	  });
-//   });
-// });
-
-
-
-// app.post('/search', function(req, res) {
-// 	var term = req.body.term;
-// 	console.log(term);
-// 	yelp.request_yelp({ term: term },function (err, response, yelpResults) {
-
-// 		// find all of the users with a given allergy
-// 		// combine inputs from form into allergies array
-// 		// pass allergies array to find(), investigate how to find 1 or more matching allergies
-
-// 		db.User.find({allergies: ''}, function(err, users) { 
-
-// 		// then console log the allergies and reviews for those users
-// 			users.forEach(function(user) { 
-// 				console.log(user.allergies, user.reviews); 
-// 			}); 
-// 		});
-
-// 		db.User.find().populate('reviews').exec( function (error, users) {
-// 			if(error) {
-// 				console.log('The error is ', error);
-// 			}
-// 			console.log('the users are :', users);
-// 			 res.send({
-// 			 			yelpResults: yelpResults, 
-// 			 			users: users
-// 			});
-// 		});
-// 	});
-// });
-
-app.get('/:yelp_id/addReview', function (req, res){
-	// logic to figure if a user is logged in or not
-	// if no user is logged in redirect them to a sign up page or a login 
-	//login page would be something like /login
-	// sign up would be /signup
+//Login Signup Routes
+app.get('/', function(req, res) {
+  res.render("index");
 });
 
-
-// app.post('/loginPost', function (req, res){
-// 	// login a user into session 
-// 	// i need to build a session helper
-
-// });
-
-app.get('/signup', function (req, res){
-	// renders a sign up form
-	res.render('signup');
+app.get('/signup', function (req, res) {
+  res.render('signup');
 });
 
-app.post('/users', function (req, res) {
+app.post('/user', function (req, res) {
   console.log(req.body);
   db.User.createSecure(req.body.email, req.body.password, function (err, newUser) {
     req.session.userId = newUser._id;
@@ -123,7 +72,7 @@ app.post('/sessions', function (req, res) {
 
 //loged in main page
 // shows all chats
-app.get('/chatcenter', function (req, res) {
+app.get('/eventcenter', function (req, res) {
   console.log('session user id: ', req.session.userId);
   // find the user currently logged in
   db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
@@ -134,10 +83,10 @@ app.get('/chatcenter', function (req, res) {
       // render profile template with user's data
       console.log('loading profile of logged in user: ', currentUser);
   }
-  db.Chat.find({}, function(err, chats){
+  db.Event.find({}, function(err, events){
     if (err) { res.json(err) }
-      console.log("chats to load for conversations-index", chats);
-    res.render('conversations-index',{chats: chats, user: currentUser});
+      console.log("events to load for events-index", events);
+    res.render('events-index',{events: events, user: currentUser});
   })
 });
 });
@@ -148,50 +97,19 @@ app.get('/logout', function (req, res) {
   // redirect to login (for now)
   res.redirect('/');
 });
-// app.post('/signupUser', function (req, res){
-// 	var newUser = req.body; 
-// 	// create a user and save into my mongoose
-// 	console.log(newUser);
-// 	db.User.createSecure(newUser.email, newUser.password, function(err, user) {
-// 		console.log('omg', err);
-// 		req.session.userId = user._id;
-// 		req.session.user = user;
-// 		res.json(user);
-	
-// 	});
-// });
 
-// // show the login form
-// app.get('/login', function (req, res) {
-//   res.render('login');
-// });
-
-// // authenticate the user and set the session
-// app.post('/sessions', function (req, res) {
-// 	console.log('body:',req.body);
-//   // call authenticate function to check if password user entered is correct
-//   db.User.authenticate(req.body.email, req.body.password, function (err, loggedInUser) {
-//     if (err){
-//       console.log('authentication error: ', err);
-//       res.status(500).send();
-//     } else {
-//       console.log('setting sesstion user id ', loggedInUser._id);
-//       req.session.userId = loggedInUser._id;
-//       res.redirect('/');
-//     }
-//   });
-// });
-
-
-// app.get('/logout', function (req, res) {
-//   // remove the session user id
-//   req.session.userId = null;
-//   // redirect to login (for now)
-//   res.redirect('/login');
-// });
-
-// app.post('/:yelp_id/createReview', function (req, res){
-// 	// save the req.body into the proper user -> reviews array
-// });
+//Rotues for Main App
+app.post('/events', function (req, res){ 
+  //console.log(req.body);
+  //create chats and save to MongoDB
+  db.Event.create(req.body, function(err, event){
+    if(err) {
+      res.json(err);
+    } else {
+      //console.log(chat);
+      res.json(event);
+    } 
+  })
+});
 
 app.listen(process.env.PORT || 3000);
