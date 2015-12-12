@@ -23,7 +23,7 @@
       
      <form id ="newEvent">
         <legend>Create new Event</legend>
-      <input name="name" type="text" class="form-control" id="chatroom" placeholder="Event Name">
+      <input name="name" type="text" class="form-control" id="eventName" placeholder="Event Name">
       <input name="detail" type="text" class="form-control" placeholder="Event Detail">
       <button type="submit" class="btn btn-primary">Add</button>
      </form>
@@ -32,7 +32,7 @@
           <h3>Event Lists</h3>
           <% events.forEach(function(event) { %>
   
-            <p><a href="/chats/<%= chat._id %>"><%= event.name %> <%= event.number %></a><span data-id="<%= chat._id %>" class='glyphicon glyphicon-hdd pull-right'></span></p>
+            <p><a href="/events/<%= event._id %>"><%= event.name %> <%= event.number %></a><span data-id="<%= event._id %>" class='glyphicon glyphicon-hdd pull-right'></span></p>
             <% }); %>
           </div>
         </div>

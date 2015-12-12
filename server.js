@@ -111,5 +111,25 @@ app.post('/events', function (req, res){
     } 
   })
 });
+app.get('/events/:_id', function (req, res){
+  console.log(req.params);
+  db.Event.findById(req.params._id).populate('rsvp').exec(function (err, event){
+    if (err) {
+      res.json(err);
+    }else{
+      res.render('event-show', {event: event})
+    }
+  });
+});
 
+//should not be an delete route, will need to change in the future
+app.delete('/events/:_id', function (req, res){
+  //console.log("chat id is", req.params);
+  db.Event.find({
+    _id: req.params._id
+  }).remove(function(err, event){
+  //  console.log("Chat Removed");
+    res.json("Event Gone?")
+  })
+})
 app.listen(process.env.PORT || 3000);
