@@ -4,6 +4,9 @@ var User = require('./user.js')
 var Rsvp = require('./rsvp.js')
 
 var EventSchema = new Schema({
+	created_at : {type: Date },
+	updated_at : {type: Date },
+	event_date : {type: String},
 	name: {type: String, require: true},
 	location: {type: String, require: true},
 	detail: {type: String, require: true},

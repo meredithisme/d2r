@@ -115,5 +115,11 @@ $('#logout').click(function (e) {
   $.get('/logout', function (data) {
     window.location.href = '/';
   })
-})
+});
+
+  $( "#datepicker" ).datepicker({
+    numberOfMonths: 2,
+    showButtonPanel: true
+  });
+
 });
