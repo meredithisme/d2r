@@ -10,22 +10,21 @@ $(document).ready(function(){
   //   $('#messages').append($('<p>').text(msg.Body));
   // });
 
-  $("#newConversation").on("submit", function(e){
+  $("#newEvent").on("submit", function(e){
     // prevent form submission
     e.preventDefault();
     var formData = $(this).serialize();
     //console.log('form data is: ', formData);
-
-    $.post("/chats", formData, function(data){
+    $.post("/events", formData, function(data){
       // append new chatroom to the page
-      var newChat = chatroom;
+      var newEvent = event;
       // clear new food form
-      var chatroomName = "<p><a href='/chats/" + data._id + "'>" + data.name + " " + data.number + "</a><span data-id='<%= chat._id %>' class='glyphicon glyphicon-hdd pull-right'></span><p>"
+      var eventName = "<p><a href='/events/" + data._id + "'>" + data.name + " " + data.detail + "</a><span data-id='<%= chat._id %>' class='glyphicon glyphicon-hdd pull-right'></span><p>"
       //console.log(chatroomName)
-      $("#chats-ul").append(chatroomName);
+      $("#events-ul").append(eventName);
       // reset the form 
-      $("#newConversation")[0].reset();
-      $("#chatroom").focus();
+      $("#newEvent")[0].reset();
+      $("#eventName").focus();
     });
   });
 
@@ -116,5 +115,11 @@ $('#logout').click(function (e) {
   $.get('/logout', function (data) {
     window.location.href = '/';
   })
-})
+});
+
+  $( "#datepicker" ).datepicker({
+    numberOfMonths: 2,
+    showButtonPanel: true
+  });
+
 });
