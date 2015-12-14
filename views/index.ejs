@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
+
   <% include _head %>
+
 <body>
+
 <!-- ===== START NAVIGATION ===== -->
+
   <% include _navbar %>
+
  
 <div class="container-fluid">
-        <div class="row-fluid">
-          <div class="col-sm-6 col-sm-offset-3 text-center">
-            <form id="searchForm" class="form-inline" role="search" method="GET" action="/">
-              <div class="form-group">
-                <input type="search" id="submitInput" class="form-control splashSearch" name="term" placeholder="Search">
-              </div>
-              <button type="submit" id="submitBtn"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
+  <div class="row-fluid">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <form id="searchForm" class="form-inline" role="search" method="GET" action="/">
+        <div class="form-group">
+          <input type="search" id="submitInput" class="form-control splashSearch" name="term" placeholder="Search">
         </div>
+        <button type="submit" id="submitBtn"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
 </div>
-  <!-- ======= ALLERGY PREFERENCE MODAL ======== -->
 
-
-
-  <!-- ======= END ALLERGY PREFERENCE MODAL ======== -->
+  <div id="triangle-up"></div>
+  <div id="triangle-right"></div>
 
   <!-- ======= YELP & USER CONTENTS ======== -->
     
@@ -40,11 +43,11 @@
   <!-- ===== END YELP & USER CONTENTS ===== -->
 
 </body>
+
     <!-- ==== FOOTER ==== -->
+
   <% include _foot %>
 
-
-    <!-- ==== END FOOTER ==== -->
-        
+    <!-- ==== END FOOTER ==== -->     
 
 </html>
