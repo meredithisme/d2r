@@ -5,15 +5,15 @@ body {
 
 .np-title {
 	color: #fff;
-	z-index: 2;
+	margin-top: -15%;
+	margin-left: -33%;
 	text-align: center;
 	font-size: 36px;
-	clear: right;
-
 }
 
 .events {
 	clear: left;
+	margin-top: 10%;
 }
 
 .eventPageHeader {
@@ -68,8 +68,16 @@ nav, .navbar, .navbar-default {
 /* ========= SPLASH PAGE STYLES ========== */
 
 .searchBtn {
+	margin-top: -15%;
 	margin: 0 auto;
 	text-align: center;
+	background-color: #00CCFF;
+	color: #fff;
+	border: none;
+}
+
+.searchBtn:hover {
+	background-color: #28008E;
 }
 
 /* ========= DATEPICKER CUSTOM STYLES ========== */
@@ -157,7 +165,7 @@ nav, .navbar, .navbar-default {
 	text-decoration: none;
 }
 .ui-datepicker .ui-datepicker-current-day {
-	background-color: #4289cc;
+	background-color: #00CCFF;
 }
 .ui-datepicker .ui-datepicker-current-day a {
 	color: #fff
