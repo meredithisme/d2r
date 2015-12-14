@@ -15,8 +15,8 @@ $(document).ready(function() {
       .error(function (data) {
         console.log("failed to create a new user");
 
-      })
-    })
+      });
+    });
     //log-in ajax
     $('#login-form').on('submit', function(e) {
       e.preventDefault();
@@ -36,13 +36,13 @@ $(document).ready(function() {
       .error(function (data) {
         console.log(data);
         alert("sign up failed");
-      })
-    })
+      });
+    });
     $('#logout').click(function (e) {
       e.preventDefault();
 
       $.get('/logout', function (data) {
         window.location.href = '/';
-      })
+      });
     });
 });
