@@ -59,6 +59,17 @@ nav, .navbar, .navbar-default {
 	margin-right: 0;
 }
 
+.navbar-header {
+	margin-right: 0;
+	padding-right: 0;
+}
+
+/* ========= SPLASH PAGE STYLES ========== */
+
+.searchBtn {
+	margin: 0 auto;
+	text-align: center;
+}
 
 /* ========= DATEPICKER CUSTOM STYLES ========== */
 
