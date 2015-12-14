@@ -9,11 +9,18 @@ var Rsvp = require('./rsvp.js');
 // also see express heroku app (linked in funnybiz)
 var userSchema = new Schema({
   email: { type: String,
-            required: true,
-            unique: true
-          },
+           required: true,
+           unique: true
+         },
   passwordDigest: String,
-  events: [{ type: Schema.ObjectId, ref: 'Event' }]
+  events: [{ type: Schema.ObjectId, ref: 'Event' }],
+  occupation: {type: String, required: true, trim: true},
+  organizationUrl: {type: String, required: true, trim: true},
+  first_name: {type: String, required: true, trim: true},
+  last_name: {type: String, required: true, trim: true},
+  organization_name: {type: String, required: true, trim: true},
+  is_organzation: {type: Boolean, default: false},
+  photoUrl: String 
 });
 
 // use form data to create db user, with a hashed and salted password
