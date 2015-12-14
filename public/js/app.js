@@ -19,7 +19,7 @@ $(document).ready(function(){
       // append new chatroom to the page
       var newEvent = event;
       // clear new food form
-      var eventName = "<p><a href='/events/" + data._id + "'>" + data.name + " " + data.detail + "</a><span data-id='<%= chat._id %>' class='glyphicon glyphicon-hdd pull-right'></span><p>"
+      var eventName = "<p><a href='/events/" + data._id + "'>" + data.title + " " + data.detail + "</a><span data-id='<%= event._id %>' class='glyphicon glyphicon-calendar pull-right'></span><p>"
       //console.log(chatroomName)
       $("#events-ul").append(eventName);
       // reset the form 
@@ -69,53 +69,6 @@ $.ajax({
         //  console.log("Failed to terminate a chat !")
       })
 })
-
-$('#signup-form').on('submit', function(e) {
-  e.preventDefault();
-  var user = $(this).serialize();
-  console.log(user);
-
-  $.post('/user', user, function (data){
-
-  })
-  .success(function (data) {
-    console.log("logged in" , data);
-    $('.logged-out').hide();
-    window.location.href = '/eventcenter';
-  })
-  .error(function (data) {
-    console.log("failed to create a new user");
-
-  })
-})
-
-$('#login-form').on('submit', function(e) {
-  e.preventDefault();
-  var user = $(this).serialize();
-  console.log(user);
-
-  $.post('/sessions', user, function (data){
-
-  })
-  .success(function (data) {
-    console.log("logged in" , data);
-    $('.logged-out').hide();
-    window.location.href = '/eventcenter';
-
-
-  })
-  .error(function (data) {
-    console.log(data);
-    alert("sign up failed");
-  })
-})
-$('#logout').click(function (e) {
-  e.preventDefault();
-
-  $.get('/logout', function (data) {
-    window.location.href = '/';
-  })
-});
 
   $( "#datepicker" ).datepicker({
     numberOfMonths: 1,
