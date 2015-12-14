@@ -129,15 +129,7 @@ app.delete('/events/:_id', function (req, res){
     _id: req.params._id
   }).remove(function(err, event){
   //  console.log("Chat Removed");
-    res.json("Event Gone?")
-  })
-})
-
-//use profile page
-app.get('/users/:_id', function (req, res){
-  console.log(req.params);
-
+    res.json("Event Gone?");
   });
-
 });
 app.listen(process.env.PORT || 3000);

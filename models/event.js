@@ -12,9 +12,9 @@ var EventSchema = new Schema({
 	location: {type: String, require: true},
 	detail: {type: String, require: true, trim: true, max:2000}, 
 	user: [{ type: Schema.ObjectId, ref: 'User' }],
-	author: { id: { type: Schema.Types.ObjectId, ref: 'User', required: true},
+	author: { id: { type: Schema.ObjectId, ref: 'User', required: true},
 			  name: { type: String, required: true}},
-	rsvps: [{ type: Schema.Types.ObjectId, ref: 'User'}]
+	rsvps: [{ type: Schema.ObjectId, ref: 'User'}]
 	// Rsvp.schema 
 })
 
