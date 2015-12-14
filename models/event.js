@@ -4,15 +4,18 @@ var User = require('./user.js')
 var Rsvp = require('./rsvp.js')
 
 var EventSchema = new Schema({
-	created_at : {type: Date },
-	updated_at : {type: Date },
+	created: {type: Date, default: Date.now, required: true},
+	updated: {type: Date, default: Date.now, required: true},
 	event_date : {type: String},
-	name: {type: String, require: true},
+	title: {type: String, require: true, trim: true, match: /^([\w ,.!?]{1,100})$/},
+	url: {type: String, trim: true, max: 1000},
 	location: {type: String, require: true},
-	detail: {type: String, require: true},
+	detail: {type: String, require: true, trim: true, max:2000}, 
 	user: [{ type: Schema.ObjectId, ref: 'User' }],
-	// user: [{type : User.Schema.Types.ObjectId}], // chats are associated with a specific user
-	rsvps: [Rsvp.schema] // chats have a collection of messages
+	author: { id: { type: Schema.ObjectId, ref: 'User', required: true},
+			  name: { type: String, required: true}},
+	rsvps: [{ type: Schema.ObjectId, ref: 'User'}]
+	// Rsvp.schema 
 })
 
 var Event = mongoose.model('Event', EventSchema);
