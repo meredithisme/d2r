@@ -132,4 +132,10 @@ app.delete('/events/:_id', function (req, res){
     res.json("Event Gone?")
   })
 })
+
+//use profile page
+app.get('/users/:_id', function (req, res){
+  console.log(req.params);
+
+});
 app.listen(process.env.PORT || 3000);

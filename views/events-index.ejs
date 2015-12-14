@@ -3,19 +3,11 @@
 <%- include _head.ejs %>
 
 <body>
-  <%- include _navbar.ejs %>
+  <%- include _innernavbar.ejs %>
   
   <div class="jumbotron bpe-jumbotron">
     <h1>Events Center</h1>
     <hr>
-    <h4>Greeting!
-                <% if (user && user.email) { %>
-                  You're logged in as <%= user.email %>!</h1>
-                  <a href="/logout" class="btn btn-default" id="logout">Log Out</a>
-                <% } else { %>
-                  You're not logged in. </h4>
-                  <a href="/">Log in</a>
-                <% } %>
   </div>
    <div class="container events">
       <div class="row">
