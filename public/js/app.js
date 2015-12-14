@@ -19,8 +19,8 @@ $(document).ready(function(){
       // append new chatroom to the page
       var newEvent = event;
       // clear new food form
-      var eventName = "<p><a href='/events/" + data._id + "'>" + data.title + " " + data.detail + "</a><span data-id='<%= event._id %>' class='glyphicon glyphicon-calendar pull-right'></span><p>"
-      //console.log(chatroomName)
+      var eventName = "<p><a href='/events/" + data._id + "'>" + "Title: "+ data.title + "<br>"+ "Detial: " + data.detail + "<br>" + "Date:"+ data.event_date + "</a><span data-id='<%= event._id %>' class='glyphicon glyphicon-calendar pull-right'></span><p>"
+     
       $("#events-ul").append(eventName);
       // reset the form 
       $("#newEvent")[0].reset();
@@ -74,5 +74,9 @@ $.ajax({
     numberOfMonths: 1,
     showButtonPanel: true
   });
+  $( "#datepickerInput" ).datepicker({
+        changeMonth: true,
+        changeYear: true
+      });
 
 });

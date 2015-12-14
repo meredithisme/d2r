@@ -4,7 +4,7 @@
 
 <body>
 
-  <%- include _innernavbar.ejs %>
+  <%- include _navbar.ejs %>
   
   <div class="container-fluid">
     <div class="row">
@@ -34,7 +34,7 @@
           <legend>Create new Event</legend>
         <input name="title" type="text" class="form-control" id="eventTitle" placeholder="Event Title">
         <input name="detail" type="text" class="form-control" placeholder="Event Detail">
-        <input name="date" type="text" class="form-control" placeholder="Event Date">
+        <input name="event_date" type="text" class="form-control" id="datepickerInput" placeholder="Event Date">
         <button type="submit" class="btn btn-primary">Add</button>
       </form>
       </div>
@@ -48,8 +48,12 @@
           <div class="list-group events" id="events-ul">
           <h3>Event Lists</h3>
           <% events.forEach(function(event) { %>
-  
-            <p><a href="/events/<%= event._id %>"><%= event.title %> <%= event.detail %></a><span data-id="<%= event._id %>" class='glyphicon glyphicon-calendar pull-right'></span></p>
+            <p><a href="/events/<%= event._id %>">Title: <%= event.title %> 
+            <br>
+            Detial: <%= event.detail %>
+            <br>
+            Date: <%= event.event_date %></a>
+            <span data-id="<%= event._id %>" class='glyphicon glyphicon-calendar pull-right'></span></p>
             <% }); %>
           </div>
         </div>

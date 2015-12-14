@@ -16,14 +16,11 @@ app.use(session({
   saveUninitialized: true,
   resave: true,
   secret: 'CatsAndPenguins',
-  cookie: { maxAge: 30 * 60 * 1000 }
+  cookie: { maxAge: 60 * 120 * 2000 }
 }));
 
 // express-session has a touch option to update max age
 // landing
-app.get('/', function(req, res) {
-  res.render("index");
-});
 
 //Login Signup Routes
 app.get('/', function(req, res) {
@@ -129,4 +126,16 @@ app.delete('/events/:_id', function (req, res){
     res.json("Event Gone?");
   });
 });
+
+app.get('/profile', function (req, res){
+  console.log(req.params);
+  db.User.findById(req.session.userId).populate('profile').exec(function (err, profile){
+    if (err) {
+      res.json(err);
+    }else{
+      res.render('profile', {profile: profile});
+    }
+  })
+})
+
 app.listen(process.env.PORT || 3000);
