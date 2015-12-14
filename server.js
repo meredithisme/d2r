@@ -8,20 +8,19 @@ var mongoose = require("mongoose");
 var db = require("./models/index");
 var session = require("express-session");
 
-
+// Setting up App
 app.set("view engine", "ejs");
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-
 app.use(session({
   saveUninitialized: true,
   resave: true,
   secret: 'CatsAndPenguins',
   cookie: { maxAge: 30 * 60 * 1000 }
 }));
-// express-session has a touch option to update max age
 
+// express-session has a touch option to update max age
+// landing
 app.get('/', function(req, res) {
   res.render("index");
 });
@@ -44,7 +43,6 @@ app.post('/user', function (req, res) {
     } else {
       res.json(newUser);
     }
-    //res.redirect('/chatcenter');
   });
 });
 
@@ -101,7 +99,6 @@ app.get('/logout', function (req, res) {
 //Rotues for Main App
 app.post('/events', function (req, res){ 
   //console.log(req.body);
-  //create chats and save to MongoDB
   db.Event.create(req.body, function(err, event){
     if(err) {
       res.json(err);

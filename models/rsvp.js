@@ -2,10 +2,8 @@ var mongoose = require('mongoose');
 
 var RsvpSchema = mongoose.Schema({
 	Body: String,
-	// To: String, // this will be someone sending to / receiving from my Twilio number
-	// From: String, // this will be my Twilio number
-	// FromCity: String, 
-	// FromState: String 
+	// Once Rsvp is set up, may want to add email and text feature to the user
+	// The Rsvp needs be fix
 })
 
 

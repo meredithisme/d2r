@@ -18,7 +18,7 @@
       
        <form id ="newEvent">
           <legend>Create new Event</legend>
-        <input name="name" type="text" class="form-control" id="eventName" placeholder="Event Name">
+        <input name="title" type="text" class="form-control" id="eventTitle" placeholder="Event Title">
         <input name="detail" type="text" class="form-control" placeholder="Event Detail">
         <input name="date" type="text" class="form-control" placeholder="Event Date">
         <button type="submit" class="btn btn-primary">Add</button>
@@ -35,7 +35,7 @@
           <h3>Event Lists</h3>
           <% events.forEach(function(event) { %>
   
-            <p><a href="/events/<%= event._id %>"><%= event.name %> <%= event.number %></a><span data-id="<%= event._id %>" class='glyphicon glyphicon-hdd pull-right'></span></p>
+            <p><a href="/events/<%= event._id %>"><%= event.title %> <%= event.detail %></a><span data-id="<%= event._id %>" class='glyphicon glyphicon-calendar pull-right'></span></p>
             <% }); %>
           </div>
         </div>

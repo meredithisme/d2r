@@ -8,12 +8,12 @@ var EventSchema = new Schema({
 	updated: {type: Date, default: Date.now, required: true},
 	event_date : {type: String},
 	title: {type: String, require: true, trim: true, match: /^([\w ,.!?]{1,100})$/},
-	url: {type: String, trim: true, max: 1000},
-	location: {type: String, require: true},
 	detail: {type: String, require: true, trim: true, max:2000}, 
+	url: {type: String, trim: true, max: 1000},
+	location: {type: String},
 	user: [{ type: Schema.ObjectId, ref: 'User' }],
-	author: { id: { type: Schema.ObjectId, ref: 'User', required: true},
-			  name: { type: String, required: true}},
+	// author: { id: { type: Schema.ObjectId, ref: 'User', required: true},
+	// 		  name: { type: String, required: true}},
 	rsvps: [{ type: Schema.ObjectId, ref: 'User'}]
 	// Rsvp.schema 
 })

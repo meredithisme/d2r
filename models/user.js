@@ -3,7 +3,6 @@ var mongoose = require('mongoose'),
   bcrypt = require('bcrypt');
 
 var Event = require('./event.js');
-// var Message = require('./message.js');
 var Rsvp = require('./rsvp.js');
 
 // also see express heroku app (linked in funnybiz)
@@ -14,13 +13,7 @@ var userSchema = new Schema({
          },
   passwordDigest: String,
   events: [{ type: Schema.ObjectId, ref: 'Event' }],
-  occupation: {type: String, required: true, trim: true},
-  organizationUrl: {type: String, required: true, trim: true},
-  first_name: {type: String, required: true, trim: true},
-  last_name: {type: String, required: true, trim: true},
-  organization_name: {type: String, required: true, trim: true},
-  is_organzation: {type: Boolean, default: false},
-  photoUrl: String 
+  profile: [{ type: Schema.ObjectId, ref: 'Profile'}]
 });
 
 // use form data to create db user, with a hashed and salted password
