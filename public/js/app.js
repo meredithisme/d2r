@@ -118,7 +118,7 @@ $('#logout').click(function (e) {
 });
 
   $( "#datepicker" ).datepicker({
-    numberOfMonths: 2,
+    numberOfMonths: 1,
     showButtonPanel: true
   });
 
