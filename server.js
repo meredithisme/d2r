@@ -84,10 +84,10 @@ app.get('/eventcenter', function (req, res) {
       console.log('loading profile of logged in user: ', currentUser);
   }
   db.Event.find({}, function(err, events){
-    if (err) { res.json(err) }
+    if (err) { res.json(err); }
       console.log("events to load for events-index", events);
     res.render('events-index',{events: events, user: currentUser});
-  })
+  });
 });
 });
 
@@ -109,7 +109,7 @@ app.post('/events', function (req, res){
       //console.log(chat);
       res.json(event);
     } 
-  })
+  });
 });
 app.get('/events/:_id', function (req, res){
   console.log(req.params);
@@ -117,7 +117,7 @@ app.get('/events/:_id', function (req, res){
     if (err) {
       res.json(err);
     }else{
-      res.render('event-show', {event: event})
+      res.render('event-show', {event: event});
     }
   });
 });
@@ -129,7 +129,7 @@ app.delete('/events/:_id', function (req, res){
     _id: req.params._id
   }).remove(function(err, event){
   //  console.log("Chat Removed");
-    res.json("Event Gone?")
-  })
-})
+    res.json("Event Gone?");
+  });
+});
 app.listen(process.env.PORT || 3000);
