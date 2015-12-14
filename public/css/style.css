@@ -4,11 +4,11 @@ body {
 }
 
 .np-title {
-	margin-top: -20%;
 	color: #fff;
 	z-index: 2;
 	text-align: center;
 	font-size: 36px;
+	clear: right;
 
 }
 
@@ -51,12 +51,13 @@ body {
 }
 
 nav, .navbar, .navbar-default {
-	background-color: transparent;
-	background: transparent;
-	border-bottom: 2px solid #00CCFF;
+	background-color: #fff;
+	border-bottom: 1px solid #00CCFF;
 	margin-bottom: 0;
 	border-radius: 0;
 	margin-right: 0;
+	box-shadow: 0px 0px 20px #888;
+	color: #fff;
 }
 
 .navbar-header {

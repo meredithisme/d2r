@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  console.log('Hey, Earth!')
+  console.log('Hey, Earth!');
 
   $('#username').focus();
   // io is listening
@@ -32,13 +32,13 @@ $(document).ready(function(){
     e.preventDefault();
 
     var messageData = $("[name='messagebody']", this).val();
-    console.log("t is ",messageData)
+    console.log("t is ",messageData);
     var input = { "message" : messageData,
     chatId : $(this).data().id
-  }
+  };
   console.log("input is ", input);
 
-  var url = "/chats/" + $(this).data().id + "/messages"
+  var url = "/chats/" + $(this).data().id + "/messages";
   $.post(url, input, function(message) {
           // make HTML string to append to page
           var newMessage = "<p>" + message.Body + "</p>";
@@ -46,8 +46,8 @@ $(document).ready(function(){
           $('#message-list').append(newMessage);
           $("#new-message")[0].reset();
           $("#textbody").focus();
-        })
-})
+        });
+});
 //Delete listener, but should be a move to archive 
 $('.chatrooms').on('click', '.glyphicon', function(e) {
   e.preventDefault();
@@ -67,8 +67,8 @@ $.ajax({
 })
 .fail(function(data){
         //  console.log("Failed to terminate a chat !")
-      })
-})
+      });
+});
 
   $( "#datepicker" ).datepicker({
     numberOfMonths: 1,

@@ -10,26 +10,19 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="eventPageHeader"></div>
-        <div class="np-title">Popular Non-Profits</div>
+        <div class="np-title">Find A Non-Profit Near You</div>
       </div>
     </div>
 
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3 text-center">
-      <form id="searchForm" class="form-inline" role="search" method="GET" action="/">
-        <div class="form-group">
-          <input type="search" id="submitInput" class="form-control splashSearch" name="term" placeholder="Search">
-        </div>
-        <button type="submit" id="submitBtn"><i class="fa fa-search"></i></button>
-      </form>
+     <button type="submit" class="btn btn-primary searchBtn">Create Event</button>
     </div>
   </div>
 
 
       <div class="row events">
         <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-2">
-
-      
        <form id ="newEvent">
           <legend>Create new Event</legend>
         <input name="title" type="text" class="form-control" id="eventTitle" placeholder="Event Title">
@@ -38,13 +31,12 @@
         <button type="submit" class="btn btn-primary">Add</button>
       </form>
       </div>
-      <div class="col-sm-3 col-sm-offset-2">
+      <div class="col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-2">
         <div id="datepicker"></div>
         
      </div>
-     </div>
-
-      <div class="col-sm-6 col-sm-offset-2">
+     
+      <div class="col-xs-5 col-xs-offset-1 col-sm-6 col-sm-offset-2">
           <div class="list-group events" id="events-ul">
           <h3>Event Lists</h3>
           <% events.forEach(function(event) { %>
@@ -52,6 +44,7 @@
             <p><a href="/events/<%= event._id %>"><%= event.title %> <%= event.detail %></a><span data-id="<%= event._id %>" class='glyphicon glyphicon-calendar pull-right'></span></p>
             <% }); %>
           </div>
+        </div>
         </div>
       </div>  
     </body>
