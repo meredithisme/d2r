@@ -93,21 +93,23 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-//Rotues for Main App
+//Routes for Main App
 app.get('/event/new', function (req, res){
-  res.render('event-create')
-})
+  res.render('event-create');
+});
+
 app.post('/events', function (req, res){ 
-  //console.log(req.body);
-  db.Event.create(req.body, function(err, event){
+  console.log("form submission is:", req.body);
+  db.Event.create(req.body, function(err, newEvent){
     if(err) {
       res.json(err);
     } else {
-      //console.log(chat);
-      res.json(event);
+      console.log(newEvent);
+      res.json(newEvent);
     } 
   });
 });
+
 app.get('/events/:_id', function (req, res){
   console.log(req.params);
   db.Event.findById(req.params._id).populate('rsvp').exec(function (err, event){
