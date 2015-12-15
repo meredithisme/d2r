@@ -25,29 +25,29 @@ $(document).ready(function(){
   });
 
 //Delete listener, but should be a move to archive 
-$('.events').on('click', '.glyphicon', function(e) {
-  e.preventDefault();
-//console.log("deleteing");
-var eventId = $(this).data().id;
-console.log(eventId);
-var chat = $(this).closest('p');
+// $('.events').on('click', '.glyphicon', function(e) {
+//   e.preventDefault();
+// //console.log("deleteing");
+// var eventId = $(this).data().id;
+// console.log(eventId);
+// var chat = $(this).closest('p');
 
-$.ajax({
-  type: "DELETE",
-  url: '/events/' + eventId
-})
-.done(function(data) {
-  console.log(data);
-  $(event).remove();
-})
-.fail(function(data){
-        //  console.log("Failed to terminate a chat !")
-      });
-});
+// $.ajax({
+//   type: "DELETE",
+//   url: '/events/' + eventId
+// })
+// .done(function(data) {
+//   console.log(data);
+//   $(event).remove();
+// })
+// .fail(function(data){
+//         //  console.log("Failed to terminate a chat !")
+//       });
+// });
 
 function buildSearchedEvent(data) {
-  var html = "<p><a href='/events/'" + data._id + "'>Title:" + data.title + "<br>Detail:" + data.detail 
-  + "Date:" + data.event_date + "</a><span data-id=" + data._id 
+  var html = "<p><a href='/events/'" + data._id + "'>Title: " + data.title + "<br>Detail: " + data.detail 
+  + "<br>Date: " + data.event_date + "</a><span data-id=" + data._id 
   + " class='glyphicon glyphicon-calendar pull-right'></span></p>";
   return html;
 }
@@ -56,7 +56,7 @@ function buildSearchedEvent(data) {
     numberOfMonths: 1,
     showButtonPanel: true,
     onSelect: function(dateSelected) {
-      console.log(dateSelected);
+      // console.log(dateSelected);
       // console.log(this.value);
       $.ajax({
         type: "POST",
@@ -67,9 +67,9 @@ function buildSearchedEvent(data) {
         console.log(data);
         $('#events-ul').empty();
         for (var i = 0; i < data.length; i++) {
-          console.log(data[i])
+          // console.log(data[i])
           var html = buildSearchedEvent(data[i])
-          console.log(html)
+          // console.log(html)
           $('#events-ul').append(html)
         };
       })
