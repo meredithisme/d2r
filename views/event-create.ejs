@@ -3,11 +3,9 @@
  <%- include _head.ejs %>
 
  <body>
+
  <%- include _navbar.ejs %>
  <div class="purplebg">
-   
-   
-
       <div class="create form">
 
    	  <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-3">
@@ -19,17 +17,20 @@
           <input name="event_date" type="text" class="form-control" id="datepickerInput" placeholder="Event Date">
           <input name="location" type="text" class="form-control" placeholder="Location">
           <input name="url" type="text" class="form-control" placeholder="Event Url">
-
+          <select name="category" class="form-control">
+            <option value="Environment_Animals">Environment & Animals</option>
+            <option value="Civil_Rights">Civil Rights</option>
+            <option value="Arts_Culture">Arts & Culture</option>
+            <option value="Education_Research">Education & Research</option>
+            <option value="Public_Sector">Public Sector</option>
+            <option value="International">International</option>
+            <option value="Religion">Religion</option>
+            <option value="Human Services">Human Services</option>
+            <option value="Health">Health</option>
+        </select>
           <button type="submit" class="btn btn-primary">Add Event</button>
         </form>
         </div>
-
-        <!-- ========= SHAPE SVG GENERATED CODE =========== -->
-      
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="circleshape"> 
-      <?xml version="1.0" encoding="utf-8"?>
-
 
 
        
@@ -37,4 +38,5 @@
       </div>
     </div> 
   </body>
+
 </html>

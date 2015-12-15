@@ -16,19 +16,38 @@
 
   
     <div class="col-sm-6 col-sm-offset-1 text-center">
-
     <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button>
-    </div></a>
+    </a>
+    </div>
   </div>
 
       <div class="row events">
         <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-2">
+
+        <a href="/event/Environment_Animals"><button type="submit" id="Environment_Animals" class="btn btn-primary searchBtn">Environment & Animals</button></a>
+
+        <a href="/event/Civil Rights"><button type="submit" id="Civil_Rights" class="btn btn-primary searchBtn">Civil Rights</button></a>
+
+        <a href="/event/Arts_Culture"><button type="submit" id="Arts_Culture" class="btn btn-primary searchBtn">Arts & Culture</button></a>
+
+        <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button></a>
+
+        <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button></a>
+
+        <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button></a>
+
+        <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button></a>
+
+        <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button></a>
+
+        <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button></a>
+
           <div class="list-group events" id="events-ul">
           <h3>Event Lists</h3>
           <% events.forEach(function(event) { %>
             <p><a href="/events/<%= event._id %>">Title: <%= event.title %> 
             <br>
-            Detial: <%= event.detail %>
+            Detail: <%= event.detail %>
             <br>
             Date: <%= event.event_date %></a>
             <span data-id="<%= event._id %>"></span></p>
@@ -37,7 +56,6 @@
         </div>
          <div class="col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-2">
         <div id="datepicker"></div>
-        
      </div>
         </div>
       </div>  

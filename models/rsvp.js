@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
+var Event = require('./event.js');
+var User = require('./user.js');
+var Schema = mongoose.Schema;
 
-var RsvpSchema = mongoose.Schema({
-	Body: String,
-	// Once Rsvp is set up, may want to add email and text feature to the user
-	// The Rsvp needs be fix
+var RsvpSchema = new Schema({
+	event: [{ type: Schema.ObjectId, ref: 'Event' }],
+	user: [{ type: Schema.ObjectId, ref: 'User' }]
 })
 
 
