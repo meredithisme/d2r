@@ -3,22 +3,38 @@
  <%- include _head.ejs %>
 
  <body>
-   <%- include _navbar.ejs %>
-   <h1><a href="/eventcenter">Event Center</a></h1>
-   <div class="create form">
-   	 <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-2">
- 	<form id ="newEvent">
-    	<legend>Create new Event</legend>
-  	<input name="title" type="text" class="form-control" id="eventTitle" placeholder="Event Title">
-  	<input name="detail" type="textarea" class="form-control" placeholder="Event Detail">
-  	<input name="event_date" type="text" class="form-control" id="datepickerInput" placeholder="Event Date">
-  	<input name="location" type="text" class="form-control" placeholder="Location">
-  	<input name="url" type="text" class="form-control" placeholder="Event Url">
+ <%- include _navbar.ejs %>
+ <div class="purplebg">
+   
+   
 
-  	<button type="submit" class="btn btn-primary">Add</button>
-	</form>
-   </div>
-  </div>
-  
-</body>
+      <div class="create form">
+
+   	  <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-3">
+        <form id ="newEvent">
+        <a href="/eventcenter"><h3>Create Event</h3></a>
+        <div class="text-center">
+          <input name="title" type="text" class="form-control" id="eventTitle" placeholder="Event Title">
+          <input name="detail" type="textarea" class="form-control" placeholder="Event Detail">
+          <input name="event_date" type="text" class="form-control" id="datepickerInput" placeholder="Event Date">
+          <input name="location" type="text" class="form-control" placeholder="Location">
+          <input name="url" type="text" class="form-control" placeholder="Event Url">
+
+          <button type="submit" class="btn btn-primary">Add Event</button>
+        </form>
+        </div>
+
+        <!-- ========= SHAPE SVG GENERATED CODE =========== -->
+      
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="circleshape"> 
+      <?xml version="1.0" encoding="utf-8"?>
+
+
+
+       
+        </div>
+      </div>
+    </div> 
+  </body>
 </html>
