@@ -16,13 +16,10 @@
 
   
     <div class="col-sm-6 col-sm-offset-1 text-center">
-    <% events.forEach(function(event) { %>
-    <a href="/events/<%= event._id %>"><button type="submit" class="btn btn-primary searchBtn">Create Event</button>
+
+    <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button>
     </div></a>
   </div>
-     <% }); %>
-
-  
 
       <div class="row events">
         <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-2">
