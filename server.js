@@ -93,21 +93,22 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-//Rotues for Main App
+//Routes for Main App
 app.get('/event/new', function (req, res){
-  res.render('event-create')
+
+  res.render('event-create');
+
 });
 
 app.post('/events', function (req, res){ 
-  //console.log(req.body);
+  console.log("form submission is:", req.body);
   db.Event.create(req.body, function(err, event){
     if(err) {
       res.json(err);
     } else {
-      //console.log(chat);
       res.json(event);
-    }; 
-  });
+    } 
+ });
 });
 
 app.get('/events/:_id', function (req, res){

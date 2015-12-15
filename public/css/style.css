@@ -1,6 +1,17 @@
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-weight: 300;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+h3 {
+	font-weight: 300;
+	color: #fff;
+	font-size: 18px;
 }
 
 .np-title {
@@ -40,6 +51,8 @@ body {
 	padding: 0;
 	margin-right: 0;
 }
+
+
 /* ========= NAV STYLES ========== */
 
 .logo {
@@ -56,13 +69,15 @@ nav, .navbar, .navbar-default {
 	margin-bottom: 0;
 	border-radius: 0;
 	margin-right: 0;
-	box-shadow: 0px 0px 20px #888;
+	margin-bottom: 0;
 	color: #fff;
+	padding-bottom: 0;
 }
 
 .navbar-header {
 	margin-right: 0;
 	padding-right: 0;
+	margin-bottom: 0;
 }
 
 /* ========= SPLASH PAGE STYLES ========== */
@@ -80,6 +95,52 @@ nav, .navbar, .navbar-default {
 	background-color: #28008E;
 }
 
+/*.purplebg {
+  background-color: #161d41;
+  width: 100%;
+  height: 1600px;
+}*/
+
+input.form-control {
+	box-shadow: none;
+	margin-top: 2%;
+	background-color: transparent;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	border-radius: 0;
+	border-bottom: 1px solid #fff;
+	border-radius: 2px;
+
+}
+
+.circleshape {
+	margin-top: -45%;
+}
+
+#newEvent {
+	clear: both;
+}
+
+
+form {
+	margin-top: 5%;
+	 background: url(/img/addevent.svg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	background-color: transparent;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	border-radius: 2px;
+	border-bottom: 1px solid #28008E;
+	height: 400px;
+	width: 600px;
+	padding: 20px;
+	box-shadow: 0px 0px 8px #888;
+}
 /* ========= DATEPICKER CUSTOM STYLES ========== */
 
 .ui-datepicker {
@@ -174,3 +235,68 @@ nav, .navbar, .navbar-default {
 	background-color: #fff;
 	cursor: default;
 }
+
+
+/* ====== CAROUSEL ======= */
+
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/*img {
+	object-fit: cover;
+
+}*/
+/* Carousel base class */
+.carousel {
+
+  height: 500px;
+  margin-bottom: 60px;
+  width: 100%;
+  background-size: cover;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+  max-width: 100%;
+
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+}
+
+
+
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+
