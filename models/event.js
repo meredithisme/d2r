@@ -12,6 +12,7 @@ var EventSchema = new Schema({
 	url: {type: String, trim: true, max: 1000},
 	location: {type: String},
 	user: [{ type: Schema.ObjectId, ref: 'User' }],
+	category: {type: String, require: true, trim: true},
 	// author: { id: { type: Schema.ObjectId, ref: 'User', required: true},
 	// 		  name: { type: String, required: true}},
 	rsvps: [{ type: Schema.ObjectId, ref: 'User'}]
