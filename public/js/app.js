@@ -18,65 +18,66 @@ $(document).ready(function(){
     $.post("/events", formData, function(data){
       // append new chatroom to the page
       var newEvent = event;
-      // clear new food form
-      var eventName = "<p><a href='/events/" + data._id + "'>" + "Title: "+ data.title + "<br>"+ "Detial: " + data.detail + "<br>" + "Date:"+ data.event_date + "</a><span data-id='<%= event._id %>' class='glyphicon glyphicon-calendar pull-right'></span><p>"
-     
-      $("#events-ul").append(eventName);
-      // reset the form 
       $("#newEvent")[0].reset();
       $("#eventName").focus();
+      window.location.assign("/eventcenter");
     });
   });
 
-  $('#new-message').on('submit', function(e) {
-    e.preventDefault();
-
-    var messageData = $("[name='messagebody']", this).val();
-    console.log("t is ",messageData);
-    var input = { "message" : messageData,
-    chatId : $(this).data().id
-  };
-  console.log("input is ", input);
-
-  var url = "/chats/" + $(this).data().id + "/messages";
-  $.post(url, input, function(message) {
-          // make HTML string to append to page
-          var newMessage = "<p>" + message.Body + "</p>";
-          
-          $('#message-list').append(newMessage);
-          $("#new-message")[0].reset();
-          $("#textbody").focus();
-        });
-});
 //Delete listener, but should be a move to archive 
-$('.chatrooms').on('click', '.glyphicon', function(e) {
+$('.events').on('click', '.glyphicon', function(e) {
   e.preventDefault();
-//        console.log("deleteing");
-
-var chatId = $(this).data().id;
-console.log(chatId);
+//console.log("deleteing");
+var eventId = $(this).data().id;
+console.log(eventId);
 var chat = $(this).closest('p');
 
 $.ajax({
   type: "DELETE",
-  url: '/chats/' + chatId
+  url: '/events/' + eventId
 })
 .done(function(data) {
   console.log(data);
-  $(chat).remove();
+  $(event).remove();
 })
 .fail(function(data){
         //  console.log("Failed to terminate a chat !")
       });
 });
 
+function buildSearchedEvent(data) {
+  var html = "<p><a href='/events/'" + data._id + "'>Title:" + data.title + "<br>Detail:" + data.detail 
+  + "Date:" + data.event_date + "</a><span data-id=" + data._id 
+  + " class='glyphicon glyphicon-calendar pull-right'></span></p>";
+  return html;
+}
+
   $( "#datepicker" ).datepicker({
     numberOfMonths: 1,
-    showButtonPanel: true
+    showButtonPanel: true,
+    onSelect: function(dateSelected) {
+      console.log(dateSelected);
+      // console.log(this.value);
+      $.ajax({
+        type: "POST",
+        url: '/events-date',
+        data: {event_date: dateSelected} 
+      })
+      .done(function(data){
+        console.log(data);
+        $('#events-ul').empty();
+        for (var i = 0; i < data.length; i++) {
+          console.log(data[i])
+          var html = buildSearchedEvent(data[i])
+          console.log(html)
+          $('#events-ul').append(html)
+        };
+      })
+    }
   });
-  $( "#datepickerInput" ).datepicker({
-        changeMonth: true,
-        changeYear: true
-      });
 
+  $( "#datepickerInput" ).datepicker({
+    changeMonth: true,
+    changeYear: true
+  });
 });

@@ -80,7 +80,7 @@ app.get('/eventcenter', function (req, res) {
   }
   db.Event.find({}, function(err, events){
     if (err) { res.json(err); }
-      console.log("events to load for events-index", events);
+      // console.log("events to load for events-index", events);
     res.render('events-index',{events: events, user: currentUser});
   });
 });
@@ -96,7 +96,8 @@ app.get('/logout', function (req, res) {
 //Rotues for Main App
 app.get('/event/new', function (req, res){
   res.render('event-create')
-})
+});
+
 app.post('/events', function (req, res){ 
   //console.log(req.body);
   db.Event.create(req.body, function(err, event){
@@ -105,9 +106,10 @@ app.post('/events', function (req, res){
     } else {
       //console.log(chat);
       res.json(event);
-    } 
+    }; 
   });
 });
+
 app.get('/events/:_id', function (req, res){
   console.log(req.params);
   db.Event.findById(req.params._id).populate('rsvp').exec(function (err, event){
@@ -130,6 +132,32 @@ app.delete('/events/:_id', function (req, res){
   });
 });
 
+app.get('/event/:category', function (req, res){
+  db.Event.find({category: req.params.category}, function (err, events){
+    if (err) return console.error(err);
+    console.log('err check');
+    if (events) {
+      res.render('events-index', {events: events});
+    }
+  });
+});
+
+app.post('/events-date', function (req, res){
+  console.log(req.body.event_date);
+  db.Event.find({event_date: req.body.event_date}, function (err, found){
+    console.log(err);
+    // console.log(found);
+    if (err) {
+      console.log(err);
+  }
+    if (found) {
+      console.log(found);
+      // res.render('events-index', {events: found});
+      res.json(found);
+    }
+  })
+})
+//user profile page
 app.get('/profile', function (req, res){
   console.log(req.params);
   db.User.findById(req.session.userId).populate('profile').exec(function (err, profile){
