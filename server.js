@@ -94,6 +94,9 @@ app.get('/logout', function (req, res) {
 });
 
 //Rotues for Main App
+app.get('/event/new', function (req, res){
+  res.render('event-create')
+})
 app.post('/events', function (req, res){ 
   //console.log(req.body);
   db.Event.create(req.body, function(err, event){
