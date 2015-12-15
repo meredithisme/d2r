@@ -123,12 +123,12 @@ app.get('/events/:_id', function (req, res){
 
 //should not be an delete route, will need to change in the future
 app.delete('/events/:_id', function (req, res){
-  //console.log("chat id is", req.params);
+  console.log("event id is", req.params);
   db.Event.find({
     _id: req.params._id
   }).remove(function(err, event){
   //  console.log("Chat Removed");
-    res.json("Event Gone?");
+    res.json(event);
   });
 });
 
