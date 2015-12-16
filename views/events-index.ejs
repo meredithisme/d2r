@@ -17,7 +17,7 @@
   
     <div class="col-sm-6 col-sm-offset-1 text-center">
 
-    <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button>
+    <a href="/event/new" id="pop" data-toggle="popover" data-content="Please Sign Up to Create a Event!"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button>
     </a>
 
     </div>
@@ -25,26 +25,30 @@
 
       <div class="row events">
         <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-2">
+           
+        <div class="dropdown">
+             <input id="mainKeywords" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="All Meetups" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*">
+             <span class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Category</span>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a href="/event/Environment_Animals"><button type="submit" id="Environment_Animals" class="btn btn-primary searchBtn">Environment & Animals</button></a>
+</li>
+                <li role="presentation"><a href="/event/Civil Rights"><button type="submit" class="btn btn-primary searchBtn">Civil Rights</button></a></li>
+                <li role="presentation"><a href="/event/Arts_Culture"><button type="submit" class="btn btn-primary searchBtn">Arts & Culture</button></a></li>
 
-        <a href="/event/Environment_Animals"><button type="submit" id="Environment_Animals" class="btn btn-primary searchBtn">Environment & Animals</button></a>
+               <li role="presentation"><a href="/event/Education"><button type="submit" class="btn btn-primary searchBtn">Education</button></a></li>
 
-        <a href="/event/Civil Rights"><button type="submit" class="btn btn-primary searchBtn">Civil Rights</button></a>
+               <li role="presentation"><a href="/event/Public_Sector"><button type="submit" class="btn btn-primary searchBtn">Public Sector</button></a></li>
 
-        <a href="/event/Arts_Culture"><button type="submit" class="btn btn-primary searchBtn">Arts & Culture</button></a>
+               <li role="presentation"><a href="/event/International"><button type="submit" class="btn btn-primary searchBtn">International</button></a></li>
+              
+              <li role="presentation"><a href="/event/Human_Services"><button type="submit" class="btn btn-primary searchBtn">Human Services</button></a></li>
 
-        <a href="/event/Education"><button type="submit" class="btn btn-primary searchBtn">Education</button></a>
+              <li role="presentation"><a href="/event/Health"><button type="submit" class="btn btn-primary searchBtn">Health</button></a></li>
 
-        <a href="/event/Public_Sector"><button type="submit" class="btn btn-primary searchBtn">Public Sector</button></a>
+              <li role="presentation"><a href="/eventcenter"><button type="submit" class="btn btn-warning resetBtn">Clear Filter</button></a></li>
 
-        <a href="/event/International"><button type="submit" class="btn btn-primary searchBtn">International</button></a>
-
-        <a href="/event/Religion"><button type="submit" class="btn btn-primary searchBtn">Religion</button></a>
-
-        <a href="/event/Human_Services"><button type="submit" class="btn btn-primary searchBtn">Human Services</button></a>
-
-        <a href="/event/Health"><button type="submit" class="btn btn-primary searchBtn">Health</button></a>
-
-        <a href="/eventcenter"><button type="submit" class="btn btn-warning resetBtn">Clear Filter</button></a>
+              </ul>
+        </div>
 
           <div class="list-group events" id="events-ul">
           <h3>Event Lists</h3>

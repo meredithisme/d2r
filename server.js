@@ -157,7 +157,7 @@ app.get('/profile', function (req, res){
     db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
       if (err){
         console.log('database error: ', err);
-        res.redirect('/');
+        res.redirect('/eventcenter');
       } else {
         // render profile template with user's data
         console.log('loading profile of logged in user: ', currentUser);
@@ -169,5 +169,6 @@ app.get('/profile', function (req, res){
     });
   });
 })
+
 
 app.listen(process.env.PORT || 3000);

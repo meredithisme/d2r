@@ -28,7 +28,7 @@
       </li>
       <li class="panel-menu-item">
        <a href="#userModal" class="text-inherit" data-toggle="modal">
-
+        
        </a>
      </li>
    </ul>
@@ -55,41 +55,63 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Update</h4>
-      </div>
-      <div class="modal-body">
-        <form id="login-form">
-          <div class="form-group">
-            <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
-          </div>
-          <div class="form-group">
-            <input type="password" name="password" class="form-control" placeholder="Password" required>
-          </div>
-          <div class="form-group">
-            <input type="text" name="occupation" class="form-control" placeholder="occupation" required autofocus>
-          </div>
-          <div class="form-group">
-            <input type="text" name="organization_name" class="form-control" placeholder="organization name" required autofocus>
-          </div>
-          <div class="form-group">
-            <input type="text" name="organizationUrl" class="form-control" placeholder="organization url" required autofocus>
-          </div>
-          <div class="form-group">
-            <input type="text" name="first_name" class="form-control" placeholder="first name" required autofocus>
-          </div>
-          <div class="form-group">
-            <input type="text" name="last_name" class="form-control" placeholder="last name" required autofocus>
-          </div>
-          <div class="checkbox">
-              <label>
-                <input type="checkbox" name="is_organzation"> Are You a Organzation ?
-              </label>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#organization-tab" data-toggle="tab">Organization<i class="fa"></i></a></li>
+            <li><a href="#volunteer-tab" data-toggle="tab">Volunteer<i class="fa"></i></a></li>
+        </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="organization-tab">
+                  <form id="updateForm" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Organization Name</label>
+                        <div class="col-xs-5">
+                           <input type="text" name="organization_name" class="form-control" placeholder="Serria Club" required autofocus>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Organization url</label>
+                        <div class="col-xs-5">
+                            <input type="text" name="organizationUrl" class="form-control" placeholder="www.sierraclub.org" required autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <button type="submit" class="btn btn-default">Update</button>
+                        </div>
+                    </div> 
+                  </form>
+                </div>
+                <div class="tab-pane" id="volunteer-tab">
+                  <form id="updateVolunteer" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">First Name</label>
+                        <div class="col-xs-5">
+                            <input type="text" name="first_name" class="form-control" placeholder="John" required autofocus>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Last Name</label>
+                        <div class="col-xs-5">
+                            <input type="text" name="last_name" class="form-control" placeholder="Muir" required autofocus>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Occupation</label>
+                        <div class="col-xs-5">
+                            <input type="text" name="occupation" class="form-control" placeholder="Naturalist" required autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <button type="submit" class="btn btn-default">Update</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
             </div>
-          <div class="form-group">
-            <input type="submit" value="Log In" class="btn btn-primary">
-          </div>
-          </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
