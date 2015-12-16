@@ -251,8 +251,8 @@ body {
 img {
 	object-fit: cover;
 	object-position: 0 0;
-	overflow: hidden;
 }
+
 /* Carousel base class */
 .carousel {
 
