@@ -1,66 +1,105 @@
+<!DOCTYPE html>
+<html>
+<%- include _head.ejs %>
+<body>
+  <%- include _navbar.ejs %>
+  <div class="container-fluid">
+    <!--user image and name in panel header responsive -->
+    <div class="container p-t-md">
+     <div class="row">
+      <div class="col-md-4">
+       <div class="panel panel-default panel-profile m-b-md">
+        <div class="panel-heading" style="background-image: url(http://i.imgur.com/YoRr1sU.jpg)">
+         <div class="panel-body text-center">  	
+          <img class="img-circle media-object">
+          <h3 class="profile-header-user"></h3>
+        </div>
+      </div>
+      <!-- closes panel header -->
+      <!-- beginning of panel body -->
+      <!--  <div class="panel panel-default"> -->
+      <div class="panel-body">
+       <p class="joinedat">Joined: Time in DB ago</p>
+       <ul class="panel-menu">
+        <li class="panel-menu-item">
+         <a href="#profile-modal" class="text-inherit" data-toggle="modal">
+          Update
+        </a>
+      </li>
+      <li class="panel-menu-item">
+       <a href="#userModal" class="text-inherit" data-toggle="modal">
 
-	<div class="container-fluid">
-
-		<!--user image and name in panel header responsive -->
-
-		<div class="container p-t-md">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="panel panel-default panel-profile m-b-md">
-						<div class="panel-heading" style="background-image: url(http://i.imgur.com/YoRr1sU.jpg)">
-							<div class="panel-body text-center">  	
-								<img class="img-circle media-object"> Image
-								<h3 class="profile-header-user">User_Name
-							</div>
-						</div>
-
-						<!-- closes panel header -->
-						<!-- beginning of panel body -->
-
-						<!--  <div class="panel panel-default"> -->
-
-						<div class="panel-body">
-							<p class="joinedat">Joined: Time in DB ago</p>
-							<ul class="panel-menu">
-								<li class="panel-menu-item">
-									<a href="#userModal" class="text-inherit" data-toggle="modal">
-
-
-									</a>
-								</li>
-								<li class="panel-menu-item">
-									<a href="#userModal" class="text-inherit" data-toggle="modal">
-
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-
- <!-- Beginning of Compliment container ==============
- ====  Stores users first name and message history --> 
-
-	 <div class="col-md-8">
-	 	<ul class="list-group media-list media-list-stream">
-	 		<li class="media list-group-item p-a">
-	 			<div class="inbox text-center">INBOX</div>
-	 		</li>
-	 		<li class="media list-group-item p-a">
-		
-			
-	 		<div class="media-right pull-right">
-	 	
-	 			</a>
-	 			
-	 	</ul>
- 	  </div>
-	</div>
+       </a>
+     </li>
+   </ul>
+ </div>
 </div>
 </div>
+
+
+ <!-- Beginning of Event container ==============
+ ====  Stores users first name and event history --> 
+
+ <div class="col-md-8">
+   <ul class="list-group media-list media-list-stream">
+    <li class="media list-group-item p-a">
+     <div class="inbox text-center">Up Coming Events</div>
+   </li>
+ </ul>
+</div>
+</div>
+</div>
+</div>
+<!--- Modal for Profile Upsate -->
+<div class="modal fade" id="profile-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Update</h4>
+      </div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="form-group">
+            <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="occupation" class="form-control" placeholder="occupation" required autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="organization_name" class="form-control" placeholder="organization name" required autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="organizationUrl" class="form-control" placeholder="organization url" required autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="first_name" class="form-control" placeholder="first name" required autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="last_name" class="form-control" placeholder="last name" required autofocus>
+          </div>
+          <div class="checkbox">
+              <label>
+                <input type="checkbox" name="is_organzation"> Are You a Organzation ?
+              </label>
+            </div>
+          <div class="form-group">
+            <input type="submit" value="Log In" class="btn btn-primary">
+          </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
-
+</html>
 
 
 

@@ -29,7 +29,7 @@ $(document).ready(function() {
       .success(function (data) {
         console.log("logged in" , data);
         $('.logged-out').hide();
-        window.location.href = '/eventcenter';
+        window.location.href = '/profile';
 
 
       })
