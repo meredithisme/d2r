@@ -24,8 +24,14 @@ h3 {
 }
 
 .events {
-	clear: left;
 	margin-top: 10%;
+}
+
+img.eventThumbnail {
+	height:215px;
+	width: 215px;
+	object-position: auto;
+
 }
 
 .eventPageHeader {
@@ -245,6 +251,7 @@ body {
 img {
 	object-fit: cover;
 	object-position: 0 0;
+	overflow: hidden;
 }
 /* Carousel base class */
 .carousel {
@@ -300,6 +307,7 @@ a.eventBox {
 }
 .demo-card-event > .mdl-card__actions {
   border-color: rgba(255, 255, 255, 0.2);
+
 }
 
 .demo-card-event > .mdl-card__title > h4 {
@@ -319,6 +327,21 @@ a.eventBox {
 h4 {
 	padding: 20px;
 }
+.demo-card-image.mdl-card {
+  width: 256px;
+  height: 256px;
+  background: url('../assets/demos/image_card.jpg') center / cover;
+}
+.demo-card-image > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.demo-card-image__filename {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+
 
 
 /* RESPONSIVE CSS
