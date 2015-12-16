@@ -17,14 +17,21 @@ h3 {
 .np-title {
 	color: #fff;
 	margin-top: -15%;
-	margin-left: -33%;
 	text-align: center;
 	font-size: 36px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
 }
 
 .events {
-	clear: left;
 	margin-top: 10%;
+}
+
+img.eventThumbnail {
+	height:215px;
+	width: 215px;
+	object-position: auto;
+
 }
 
 .eventPageHeader {
@@ -113,15 +120,6 @@ input.form-control {
 	border-radius: 2px;
 
 }
-
-.circleshape {
-	margin-top: -45%;
-}
-
-#newEvent {
-	clear: both;
-}
-
 
 form {
 	margin-top: 5%;
@@ -250,10 +248,11 @@ body {
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-/*img {
+img {
 	object-fit: cover;
+	object-position: 0 0;
+}
 
-}*/
 /* Carousel base class */
 .carousel {
 
@@ -282,14 +281,73 @@ body {
   height: 500px;
 }
 
+/* EVENT CARD */
 
+.demo-card-wide.mdl-card {
+  width: 512px;
+  height: auto;
+  margin-bottom: 5%;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+a.eventBox {
+	color: #fff;
+}
+.demo-card-event.mdl-card {	
+  width: 215px;
+  height: 215px;
+  background-color: #3E4EB8;
+  border-radius: 2px;
+}
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+
+}
+
+.demo-card-event > .mdl-card__title > h4 {
+  margin-top: 10px;
+}
+.demo-card-event > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event > .mdl-card__actions > .mdl-button {
+  color: #fff;
+}
+
+h4 {
+	padding: 20px;
+}
+.demo-card-image.mdl-card {
+  width: 256px;
+  height: 256px;
+  background: url('../assets/demos/image_card.jpg') center / cover;
+}
+.demo-card-image > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.demo-card-image__filename {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
 
 
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
 
 
   /* Bump up size of carousel content */
@@ -299,4 +357,11 @@ body {
     line-height: 1.4;
   }
 
+  .np-title {
+	font-size: 21px;
+}
 
+.footer {
+	max-width: 100%;
+
+}
