@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="eventPageHeader"></div>
-         <h1><div class="np-title">Connect to a community near you.</div></h1>
+         <h1 class="np-title">Connect to a community near you.</h1>
       </div>
     </div>
 
@@ -43,23 +43,44 @@
         <a href="/event/Health"><button type="submit" class="btn btn-primary searchBtn">Health</button></a>
 
         <a href="/eventcenter"><button type="submit" class="btn btn-warning resetBtn">Clear Filter</button></a>
-
-          <div class="list-group events" id="events-ul">
-          <h3>Event Lists</h3>
-          <% events.forEach(function(event) { %>
-            <p><a href="/events/<%= event._id %>">Title: <%= event.title %> 
-            <br>
-            Detail: <%= event.detail %>
-            <br>
-            Date: <%= event.event_date %></a>
-            <span data-id="<%= event._id %>"></span></p>
-            <% }); %>
-          </div>
         </div>
+        
+        
          <div class="col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-2">
-        <div id="datepicker"></div>
+        <div id="datepicker"></div><br>
      </div>
-        </div>
-      </div>  
+
+
+
+  <!-- Event card -->
+<div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-2">
+<% events.forEach(function(event) { %>
+
+<div class="demo-card-event mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+      <h4>
+      <a class="eventBox" href="/events/<%= event._id %>"><%= event.title %></a><br>
+      <%=  event.location %><br>
+     <%= event.event_date %>
+            <span data-id="<%= event._id %>"></span>
+       </h4>
+  </div>
+ 
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      Add to Calendar
+    </a>
+    <div class="mdl-layout-spacer"></div>
+    <i class="material-icons">event</i>
+  </div>
+
+</div>
+ <% }); %>
+ </a>
+  </div>
+</div>
     </body>
   </html>
+
+
