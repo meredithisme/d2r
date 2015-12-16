@@ -2,12 +2,17 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 }
+
+.row {
+	margin-right: 0;
+}
 a {
 	text-decoration: none;
 }
 a:hover {
 	text-decoration: none;
 }
+
 h3 {
 	font-weight: 300;
 	color: #fff;
@@ -100,6 +105,7 @@ nav, .navbar, .navbar-default {
 
 .searchBtn:hover {
 	background-color: #28008E;
+	color: #fff;
 }
 
 input.form-control {
@@ -345,6 +351,7 @@ h4 {
 
 
 .eventtitle {
+	
 
 }
 /* RESPONSIVE CSS
