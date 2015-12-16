@@ -17,9 +17,10 @@ h3 {
 .np-title {
 	color: #fff;
 	margin-top: -15%;
-	margin-left: -33%;
 	text-align: center;
 	font-size: 36px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
 }
 
 .events {
@@ -113,15 +114,6 @@ input.form-control {
 	border-radius: 2px;
 
 }
-
-.circleshape {
-	margin-top: -45%;
-}
-
-#newEvent {
-	clear: both;
-}
-
 
 form {
 	margin-top: 5%;
@@ -250,10 +242,10 @@ body {
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-/*img {
+img {
 	object-fit: cover;
-
-}*/
+	object-position: 0 0;
+}
 /* Carousel base class */
 .carousel {
 
@@ -282,25 +274,36 @@ body {
   height: 500px;
 }
 
-
 /* EVENT CARD */
+
+.demo-card-wide.mdl-card {
+  width: 512px;
+  height: auto;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
 a.eventBox {
 	color: #fff;
 }
-.demo-card-event.mdl-card {
-  width: 256px;
-  height: 256px;
-  background: #3E4EB8;
+.demo-card-event.mdl-card {	
+  width: 215px;
+  height: 215px;
+  background-color: #3E4EB8;
+  border-radius: 2px;
   margin-top: 15px;
 }
 .demo-card-event > .mdl-card__actions {
   border-color: rgba(255, 255, 255, 0.2);
 }
-.demo-card-event > .mdl-card__title {
-  align-items: flex-start;
-}
+
 .demo-card-event > .mdl-card__title > h4 {
-  margin-top: 0;
+  margin-top: 10px;
 }
 .demo-card-event > .mdl-card__actions {
   display: flex;
@@ -321,7 +324,7 @@ h4 {
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
 
 
   /* Bump up size of carousel content */
@@ -330,5 +333,9 @@ h4 {
     font-size: 21px;
     line-height: 1.4;
   }
+
+  .np-title {
+	font-size: 21px;
+}
 
 
