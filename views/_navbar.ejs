@@ -15,7 +15,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       <% if (typeof user !== 'undefined') { %>
-        <li><a href="/profile">Profile</a></li>
+
+        <li><a href="#"><%= user.email %></a></li>
+
         <li><a href="/logout">Logout</a></li>
       <% } else { %>
         <li><a href="#signup-modal" data-toggle="modal" class='logged-out'>Signup</a></li>

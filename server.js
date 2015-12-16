@@ -68,22 +68,15 @@ app.post('/sessions', function (req, res) {
 //loged in main page
 // shows all chats
 app.get('/eventcenter', function (req, res) {
-  console.log('session user id: ', req.session.userId);
+
   // find the user currently logged in
-  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
-    if (err){
-      console.log('database error: ', err);
-      res.redirect('/');
-    } else {
-      // render profile template with user's data
-      console.log('loading profile of logged in user: ', currentUser);
-  }
+
   db.Event.find({}, function(err, events){
     if (err) { res.json(err); }
       // console.log("events to load for events-index", events);
-    res.render('events-index',{events: events, user: currentUser});
+    res.render('events-index',{events: events});
   });
-});
+
 });
 
 app.get('/logout', function (req, res) {
@@ -161,13 +154,21 @@ app.post('/events-date', function (req, res){
 //user profile page
 app.get('/profile', function (req, res){
   console.log(req.params);
-  db.User.findById(req.session.userId).populate('profile').exec(function (err, profile){
-    if (err) {
-      res.json(err);
-    }else{
-      res.render('profile', {profile: profile});
+    db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+      if (err){
+        console.log('database error: ', err);
+        res.redirect('/eventcenter');
+      } else {
+        // render profile template with user's data
+        console.log('loading profile of logged in user: ', currentUser);
     }
-  })
+    db.Event.find({}, function(err, events){
+      if (err) { res.json(err); }
+        // console.log("events to load for events-index", events);
+      res.render('profile',{events: events, user: currentUser});
+    });
+  });
 })
+
 
 app.listen(process.env.PORT || 3000);
