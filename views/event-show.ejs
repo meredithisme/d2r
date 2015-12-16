@@ -6,7 +6,21 @@
 
   <%- include _navbar.ejs %>
 
-	<div class="purplebg">
+	<body><br>
+	<!-- <div class="container"> -->
+		<div class="row-fluid">
+			<div class="text-center">
+				<h1 class="responsive">Transforming your travel experience.</h1>
+			</div><hr>
+
+		<!-- ==== MAIN CITY SPLASH PHOTO ===== -->
+
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<div class="eventImage">
+					<img src="<%= event.url %>"/>
+				</div>
+			</div>
+		</div>
 
   <h1><a href="/eventcenter">Create Non-Profit Event</a></h1>
   
@@ -15,7 +29,7 @@
       <p>Event Title is: <%= event.title %></p>
       <p>Details: <%= event.detail %></p>
       <p>Date: <%= event.event_date %></p>
-      <p>Url: <%= event.url %></p>
+      
       <p>Location: <%= event.location %></p>
       <p>Created at: <%= event.created %></p>
 

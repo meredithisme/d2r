@@ -102,12 +102,6 @@ nav, .navbar, .navbar-default {
 	background-color: #28008E;
 }
 
-/*.purplebg {
-  background-color: #161d41;
-  width: 100%;
-  height: 1600px;
-}*/
-
 input.form-control {
 	box-shadow: none;
 	margin-top: 2%;
@@ -251,6 +245,13 @@ body {
 img {
 	object-fit: cover;
 	object-position: 0 0;
+	display: block;
+	 width: 100%;
+  	overflow: hidden;
+}
+.eventImage {
+	margin-bottom: 3%;
+	margin: 0 auto;
 }
 
 /* Carousel base class */
@@ -343,7 +344,9 @@ h4 {
   font-weight: 500;
 
 
+.eventtitle {
 
+}
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
