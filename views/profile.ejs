@@ -6,10 +6,10 @@
   <%- include _navbar.ejs %>
 
     <!--user image and name in panel header responsive -->
-   <div class="container p-t-md">
+   <div class="goDown">
      <div class="row">
-      <div class="col-md-4">
-       <div class="panel panel-default panel-profile m-b-md">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+       <div class="panel panel-default panel-profile">
         <div class="panel-heading" style="background-image: url(http://i.imgur.com/YoRr1sU.jpg)">
          <div class="panel-body text-center">  	
           <img class="img-circle media-object">
@@ -19,30 +19,32 @@
       <!-- closes panel header -->
       <!-- beginning of panel body -->
       <!--  <div class="panel panel-default"> -->
-      <div class="panel-body">
+      <div class="panel-body text-center">
        <p class="joinedat">Organization name: <%= user.organization_name %></p>
        <p class="joinedat">Organization Url: <%= user.organizationUrl %></p>
        <ul class="panel-menu">
-        <li class="panel-menu-item">
+        
          <a href="#profile-modal" class="text-inherit" data-toggle="modal">
           Update
         </a>
-      </li>
-      <li class="panel-menu-item">
+      
+      
        <a href="#userModal" class="text-inherit" data-toggle="modal">
         
        </a>
-     </li>
+     
    </ul>
  </div>
 </div>
 </div>
+</div>
+
 
 
  <!-- Beginning of Event container ==============
  ====  Stores users first name and event history --> 
 
- <div class="col-md-8">
+ <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
    <ul class="list-group media-list media-list-stream">
     <li class="media list-group-item p-a">
      <div class="inbox text-center">Up Coming Events</div>

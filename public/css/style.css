@@ -8,6 +8,11 @@ h1 {
 	font-size: 48px;
 }
 
+h5 {
+	color: #888;
+	text-align: justify;
+}
+
 .row {
 	margin-right: 0;
 }
@@ -31,6 +36,7 @@ h3 {
 .imgthumbnail {
 	width: 200px;
 	height: 200px;
+	border-radius: 2px;
 }
 
 .np-title {
@@ -102,7 +108,7 @@ img.eventThumbnail {
 	height:200px;
 	width: 200px;
 	object-fit: auto;
-	object-position: auto;
+	/*object-position: auto;*/
 }
 
 .eventPageHeader {
@@ -123,12 +129,17 @@ img.eventThumbnail {
 	padding: 0;
 }
 
-.container-fluid {
+.container-fluid, .container {
 	margin-left: 0;
 	padding: 0;
 	margin-right: 0;
 }
 
+.goDown {
+	margin-top: 5%;
+	margin-left: 0px;
+	margin-right: 0px;
+}
 
 /* ========= NAV STYLES ========== */
 
@@ -149,6 +160,7 @@ nav, .navbar, .navbar-default {
 	margin-bottom: 0;
 	color: #fff;
 	padding-bottom: 0;
+	clear: right;
 }
 
 .navbar-header {
@@ -399,11 +411,10 @@ h4 {
 		font-size: 36px;
 	}
 
-	.footer {
+	.footerStyle {
 		width: 100%;
 	}
 }
-
 
 /* CARD STYLES ON EVENT-INDEX */
 
@@ -439,5 +450,69 @@ button:hover
     -webkit-appearance:none;
 }
 
+.inbox {
+	font-size: 28px;
+	color: #1A083A;
+	font-weight: 400;
+	font-family: 'Lato', sans-serif;
+}
 
+/* Button */
+.button {
+  margin-top: -15%;
+  position: relative;
+  width: 120px;
+  height: 42px;
+  line-height: 42px;
+  border-radius: 2px;
+  font-size: 0.9em;
+  background-color: #fff;
+  color: #646464;
+}
 
+.buttonUp {
+	margin-top: -5%;
+}
+
+.button > paper-ripple {
+  border-radius: 2px;
+  overflow: hidden;
+}
+.button.blue {
+  background-color: #28008E;
+  color: #fff;
+}
+.button.raised {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.button.raised:active {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+.icon-button > paper-ripple {
+  overflow: hidden;
+  color: #646464;
+}
+.icon-button.blue > core-icon::shadow path {
+  fill: #4285f4;
+}
+.icon-button.blue > paper-ripple {
+  color: #4285f4;
+}
+
+.glyphicon-user {
+	color: #1A083A;
+}
+
+.homelessPop {
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+}
+
+.eventListStyle {
+	color: #fff;
+}

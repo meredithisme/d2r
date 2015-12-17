@@ -16,15 +16,21 @@
       </div>
     </div>
   
-    <div class="col-sm-6 col-sm-offset-3 text-center">
-     <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary filter">Create Event</button>
-      </a>
+    <div class="col-xs-offset-4 col-sm-offset-5 text-center buttonUp">
+      <a href="/event/new">
+        <div class="button raised blue">
+          <div class="center" fit>Create Event</div>
+          <paper-ripple fit></paper-ripple>
+        </div>
+        </a>
     </div>
-    </div>
+
+  </div>
 
     <!-- ====== NON PROFIT SECTOR FILTER ====== -->
-
+      
       <div class="row events">
+      <hr>
         <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
         <div class="dropdown">
              <input id="mainKeywords" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="Filter" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*">
@@ -60,7 +66,7 @@
                 <% events.forEach(function(event) { %>
                   <h3 class='eventTitle'>
                     <p><img src="<%= event.url %>" class="imgthumbnail">
-                    <a href="/events/<%= event._id %>"><%= event.title %>
+                    <a href="/events/<%= event._id %>" class="eventListStyles"><%= event.title %>
                     <br>
                     <%= event.detail %>
                     <br>
