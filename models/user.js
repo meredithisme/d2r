@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 var Event = require('./event.js');
 var Rsvp = require('./rsvp.js');
 
+
 // also see express heroku app (linked in funnybiz)
 var userSchema = new Schema({
   email: { type: String,
@@ -13,7 +14,14 @@ var userSchema = new Schema({
          },
   passwordDigest: String,
   events: [{ type: Schema.ObjectId, ref: 'Event' }],
-  profile: [{ type: Schema.ObjectId, ref: 'Profile'}]
+  rsvps: [{ type: Schema.ObjectId, ref: 'Rsvp'}],
+  occupation: {type: String, trim: true},
+  organization_name: {type: String, trim: true},
+  is_organzation: {type: Boolean, default: false},
+  organizationUrl: {type: String, trim: true},
+  first_name: {type: String, trim: true},
+  last_name: {type: String, trim: true},
+  photoUrl: String 
 });
 
 // use form data to create db user, with a hashed and salted password
