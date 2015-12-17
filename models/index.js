@@ -10,8 +10,7 @@ mongoose.connect( process.env.MONGOLAB_URI ||
 var User = require('./user.js');
 var Event = require('./event.js');
 var Rsvp = require('./rsvp.js');
-var Profile = require('./profile.js');
+
 module.exports.User = User;
 module.exports.Event = Event;
 module.exports.Rsvp = Rsvp;
-module.exports.Profile = Profile;
