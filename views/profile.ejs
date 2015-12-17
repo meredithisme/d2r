@@ -46,6 +46,17 @@
    <ul class="list-group media-list media-list-stream">
     <li class="media list-group-item p-a">
      <div class="inbox text-center">Up Coming Events</div>
+     <% events.forEach(function(event) { %>
+       <p><img src="<%= event.url %>" class="imgthumbnail">
+       <a href="/events/<%= event._id %>"><%= event.title %>
+       <br>
+       <%= event.detail %>
+       <br>
+       <%= event.event_date %></a>
+       <span data-id="<%= event._id %>"></span>
+       
+       </p>
+       <% }); %>
    </li>
  </ul>
 </div>
