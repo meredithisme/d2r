@@ -17,8 +17,13 @@
     </div>
   
     <div class="col-sm-6 col-sm-offset-3 text-center">
+    <% if (user) { %>
      <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary filter">Create Event</button>
       </a>
+    <% }else {%>
+    <a href="#signup-modal" data-toggle="modal" class="sign-up"><button type="submit" id="createEvent" class="btn btn-primary filter">Sign up to create event</button></a>
+    <% } %>
+
     </div>
     </div>
 

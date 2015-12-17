@@ -196,21 +196,24 @@ app.get('/profile', function (req, res){
           }
           //console.log(rsvp)
           var events = [];
-          rsvpList.forEach(function(rsvp){
+          rsvpList.forEach(function (rsvp){
             console.log(rsvp.event);
             db.Event.findOne({_id: rsvp.event}, function (err, event){
               if (err) {
                 res.json(err);
               }else{
                 events.push(event);
-                console.log("executing mongo");
-                if(events.length == rsvpList.length) {
+                // console.log(event);
+                if (events.length == 0 ){
+                  res.render('profile', {user: currentUser})
+                } else if(events.length == rsvpList.length) {
                   console.log("executing front");
                   res.render('profile', {user: currentUser, events: events})
                 }
               }
             })
-          })
+          });
+
         })
       }
     });
