@@ -8,9 +8,12 @@ h1 {
 	font-size: 48px;
 }
 
-h5 {
+.cardOneText {
 	color: #888;
 	text-align: justify;
+	font-size: 18px;
+	font-weight: 300;
+	font-family: 'Lato', 'Avenir', sans-serif;
 }
 
 .row {
@@ -508,11 +511,21 @@ button:hover
 }
 
 .homelessPop {
+	color: #fff;
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	font-weight: 700;
+	margin-top: 25%;
+	font-size: 48px;
+	padding: 20%;
 }
 
 .eventListStyle {
 	color: #fff;
+}
+
+.backContent {
+	margin-top: 35%;
+	color: #fff;
+	text-align: justify;
 }
