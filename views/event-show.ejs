@@ -31,8 +31,17 @@
       
       <p>Location: <%= event.location %></p>
       <p>Created at: <%= event.created %></p>
+		<% if (!rsvp) { %>
+			<button type= "submit" class="btn btn-danger" id="rsvp">RSVP</button>
+		<% }else{%>
+			<button type= "submit" class="btn btn-warning" id="un_rsvp">Cancel RSVP</button>
+		<% } %>	  
 
-      <button class="btn btn-danger">RSVP</button>
+		<p>Details: <%= event.detail %></p>
+		<p>Date: <%= event.event_date %></p>
+		
+		<p>Location: <%= event.location %></p>
+		<p>Created at: <%= event.created %></p>
     </div>
   </div>
 </div>

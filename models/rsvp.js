@@ -4,8 +4,8 @@ var User = require('./user.js');
 var Schema = mongoose.Schema;
 
 var RsvpSchema = new Schema({
-	event: [{ type: Schema.ObjectId, ref: 'Event' }],
-	user: [{ type: Schema.ObjectId, ref: 'User' }]
+	event: { type: Schema.ObjectId, ref: 'Event' },
+	user: { type: Schema.ObjectId, ref: 'User' }
 })
 
 
