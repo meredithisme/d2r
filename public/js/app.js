@@ -100,6 +100,7 @@ function buildSearchedEvent(data) {
       console.log(data);
     })
   })
+
 });
 
 
