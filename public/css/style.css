@@ -8,14 +8,6 @@ h1 {
 	font-size: 48px;
 }
 
-.cardOneText {
-	color: #888;
-	text-align: justify;
-	font-size: 18px;
-	font-weight: 300;
-	font-family: 'Lato', 'Avenir', sans-serif;
-}
-
 .row {
 	margin-right: 0;
 }
@@ -100,7 +92,7 @@ h3 {
   border: 1px solid #E1E1E1;
   border-radius: 3px;
   min-height: 100px;
-  background: url(/img/addevent.svg) no-repeat center center fixed;
+  background-color: #28008E;
   background-size: cover; 
   -webkit-background-size: cover;
   	-moz-background-size: cover;
@@ -407,12 +399,11 @@ h4 {
 	}
 
 	.carousel-caption {
-		margin-top: -20%;
+		margin-top: -30%;
 	}
 
 	h1 {
 		font-size: 36px;
-		margin-top: -30%;
 	}
 
 	.footerStyle {
@@ -432,6 +423,14 @@ ul.dropdown-menu {
 	font-style: italic;
 	text-align: center;
 	font-size: 28px;
+}
+
+.cardOneText {
+	color: #888;
+	text-align: justify;
+	font-size: 18px;
+	font-weight: 300;
+	font-family: 'Lato', 'Avenir', sans-serif;
 }
 
 /* ACTIVE STATES BOX SHADOW REMOVAL FROM DEFAULT BOOTSTRAP */
@@ -465,11 +464,11 @@ button:hover
 .button {
   margin-top: -15%;
   position: relative;
-  width: 120px;
-  height: 42px;
-  line-height: 42px;
+  width: 140px;
+  height: 50px;
+  line-height: 50px;
   border-radius: 2px;
-  font-size: 0.9em;
+  font-size: 1.1em;
   background-color: #fff;
   color: #646464;
 }
@@ -516,7 +515,7 @@ button:hover
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	font-weight: 700;
-	margin-top: 25%;
+	margin-top: 28%;
 	font-size: 48px;
 	padding: 20%;
 }
@@ -526,7 +525,57 @@ button:hover
 }
 
 .backContent {
-	margin-top: 35%;
+	margin-top: 38%;
 	color: #fff;
 	text-align: justify;
+
+}
+
+.backContentTwo {
+	margin-top: 20%;
+	color: #fff;
+	text-align: justify;
+	font-size: 28px;
+	padding: 10px;
+	font-weight: 500;
+
+}
+/* ==== INDEX PAGE FADE IN SUBHEADER ==== */
+
+.title {
+	opacity: 0;
+	animation-name: fadein;
+	 animation-duration: 1s;
+	 animation-iteration-count: 1;
+	 animation-direction: alternate;
+	 animation-timing-function: ease-in;
+	 animation-fill-mode: forwards;
+	 animation-delay: 1s;
+	 
+	 -webkit-animation-name: fadein;
+	 -webkit-animation-duration: 1s;
+	 -webkit-animation-iteration-count: 1;
+	 -webkit-animation-direction: alternate;
+	 -webkit-animation-timing-function: ease-in;
+	 -webkit-animation-fill-mode: forwards;
+	 -webkit-animation-delay: 1s;
+}
+
+/* FADE IN ANIMATION */
+
+@-webkit-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
