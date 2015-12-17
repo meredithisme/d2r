@@ -24,7 +24,14 @@ app.use(session({
 
 //Login Signup Routes
 app.get('/', function(req, res) {
-  res.render("index");
+    db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+      if (err) {
+        console.log('user not exist:', err);
+      }else{
+        console.log("user logged in: ", currentUser);
+        res.render("index", {user: currentUser});
+      }
+  });
 });
 
 app.get('/signup', function (req, res) {
@@ -60,24 +67,25 @@ app.post('/sessions', function (req, res) {
       } else {
         res.json(loggedInUser);
       }
-      //res.redirect('/chatcenter');
     }
   });
 });
 
 //loged in main page
-// shows all chats
 app.get('/eventcenter', function (req, res) {
-
-  // find the user currently logged in
-
+  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    if (err) {
+      console.log('user not exist:', err);
+      res.redirect('/profile');
+    }else{
   db.Event.find({}, function(err, events){
     if (err) { res.json(err); }
       // console.log("events to load for events-index", events);
-    res.render('events-index',{events: events});
+    res.render('events-index',{events: events, user: currentUser});
   });
-
+}
 });
+})
 
 app.get('/logout', function (req, res) {
   // remove the session user id
@@ -88,9 +96,14 @@ app.get('/logout', function (req, res) {
 
 //Routes for Main App
 app.get('/event/new', function (req, res){
-
-  res.render('event-create');
-
+    db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+      if (err) {
+        console.log('user not exist:', err);
+      }else{
+        console.log("user logged in: ", currentUser);
+        res.render('event-create', {user: currentUser});
+      }
+  });
 });
 
 app.post('/events', function (req, res){ 
@@ -156,19 +169,49 @@ app.get('/profile', function (req, res){
   console.log(req.params);
     db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
       if (err){
-        console.log('database error: ', err);
+        //console.log('database error: ', err);
         res.redirect('/eventcenter');
       } else {
-        // render profile template with user's data
         console.log('loading profile of logged in user: ', currentUser);
-    }
-    db.Event.find({}, function(err, events){
-      if (err) { res.json(err); }
-        // console.log("events to load for events-index", events);
-      res.render('profile',{events: events, user: currentUser});
-    });
+        res.render('profile', {user: currentUser})
+      }
   });
+});
+
+app.post('/organizationprofile', function (req, res){
+  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    if (err) {
+      console.log('user not exist:', err);
+      res.redirect('/profile');
+    }else{
+      console.log(req.body);
+      db.User.update({organization_name: req.body.organization_name, organizationUrl: req.body.organizationUrl, is_organzation: true}, function (err, updatedUser) {
+        if (err) {
+          console.log(err)
+        }else{
+          res.render('profile', {user: updatedUser})
+        }
+      })
+    }
+  })
 })
 
+app.post('/volunteerlprofile', function (req, res){
+  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    if (err) {
+      console.log('user not exist:', err);
+      res.redirect('/profile');
+    }else{
+      console.log(req.body);
+      db.User.update({first_name: req.body.first_name, last_name: req.body.last_name, occupation: req.body.occupation}, function (err, updatedUser) {
+        if (err) {
+          console.log(err)
+        }else{
+          res.render('profile', {user: updatedUser})
+        }
+      })
+    }
+  })
+})
 
 app.listen(process.env.PORT || 3000);
