@@ -1,6 +1,5 @@
 body {
 	font-size: 14px;
-
 }
 
 .btn:hover,
@@ -216,8 +215,6 @@ body {
 .btn-simple i{
     font-size: 16px;
 }
-
-
 
 /*  ====== BUG FIXES FOR IE ======= */
 
