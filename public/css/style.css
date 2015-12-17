@@ -35,6 +35,10 @@ h3 {
 	display: block;
 }
 
+img {
+	max-height: 500px;
+}
+
 .np-title {
 	color: #fff;
 	margin-top: -20%;
