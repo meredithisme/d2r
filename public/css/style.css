@@ -32,6 +32,7 @@ h3 {
 	width: 200px;
 	height: 200px;
 	border-radius: 2px;
+	display: block;
 }
 
 .np-title {
@@ -520,8 +521,9 @@ button:hover
 	padding: 20%;
 }
 
-.eventListStyle {
+.eventListStyles {
 	color: #fff;
+	display: inline-block;
 }
 
 .backContent {
@@ -539,6 +541,11 @@ button:hover
 	padding: 10px;
 	font-weight: 500;
 
+}
+
+.filterpg {
+	font-size: 18px;
+	color: #1A083A;
 }
 /* ==== INDEX PAGE FADE IN SUBHEADER ==== */
 
