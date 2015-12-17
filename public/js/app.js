@@ -46,7 +46,7 @@ $(document).ready(function(){
 // });
 
 function buildSearchedEvent(data) {
-  var html = "<p><a href='/events/'" + data._id + "'>Title: " + data.title + "<br>Detail: " + data.detail 
+  var html = "<p><a href='/events/'" + data._id + "'>" + data.title + "<br>Detail: " + data.detail 
   + "<br>Date: " + data.event_date + "</a><span data-id=" + data._id 
   + " class='glyphicon glyphicon-calendar pull-right'></span></p>";
   return html;

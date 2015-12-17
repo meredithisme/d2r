@@ -8,51 +8,66 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="eventPageHeader"></div>
-         <h1><div class="np-title">Connect to a community near you.</div></h1>
+         <h2><div class="np-title">Connect to a community near you.</div></h2>
       </div>
     </div>
   
-    <div class="col-sm-6 col-sm-offset-1 text-center">
-    <a href="/event/new" id="pop" data-toggle="popover" data-content="Please Sign Up to Create a Event!"><button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button>
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+    <button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button>
     </a>
     </div>
   </div>
       <div class="row events">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-2">
-           
+        <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
         <div class="dropdown">
-             <input id="mainKeywords" class="dropdown-toggle" data-toggle="dropdown" type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="All Meetups" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*">
+
+             <input id="mainKeywords" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="All Meetups" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*">
+
              
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation"><a href="/event/Environment_Animals"><button type="submit" id="Environment_Animals" class="btn btn-primary searchBtn">Environment & Animals</button></a>
-</li>
-                <li role="presentation"><a href="/event/Civil Rights"><button type="submit" class="btn btn-primary searchBtn">Civil Rights</button></a></li>
-                <li role="presentation"><a href="/event/Arts_Culture"><button type="submit" class="btn btn-primary searchBtn">Arts & Culture</button></a></li>
-               <li role="presentation"><a href="/event/Education"><button type="submit" class="btn btn-primary searchBtn">Education</button></a></li>
-               <li role="presentation"><a href="/event/Public_Sector"><button type="submit" class="btn btn-primary searchBtn">Public Sector</button></a></li>
-               <li role="presentation"><a href="/event/International"><button type="submit" class="btn btn-primary searchBtn">International</button></a></li>
-              
-              <li role="presentation"><a href="/event/Human_Services"><button type="submit" class="btn btn-primary searchBtn">Human Services</button></a></li>
-              <li role="presentation"><a href="/event/Health"><button type="submit" class="btn btn-primary searchBtn">Health</button></a></li>
-              <li role="presentation"><a href="/eventcenter"><button type="submit" class="btn btn-warning resetBtn">Clear Filter</button></a></li>
+                <div class="col-sm-4">
+                <li role="presentation"><a href="/event/Environment_Animals"><button type="submit" id="Environment_Animals" class="btn btn-primary filter">Environment & Animals</button></a>
+                </li>
+                <li role="presentation"><a href="/event/Civil Rights"><button type="submit" class="btn btn-primary filter">Civil Rights</button></a></li>
+                <li role="presentation"><a href="/event/Arts_Culture"><button type="submit" class="btn btn-primary filter">Arts & Culture</button></a></li>
+                </div>
+                <div class="col-sm-4">
+               <li role="presentation"><a href="/event/Education"><button type="submit" class="btn btn-primary filter">Education</button></a></li>
+               <li role="presentation"><a href="/event/Public_Sector"><button type="submit" class="btn btn-primary filter">Public Sector</button></a></li>
+               <li role="presentation"><a href="/event/International"><button type="submit" class="btn btn-primary filter">International</button></a></li>
+              </div>
+              <div class='col-sm-4'>
+              <li role="presentation"><a href="/event/Human_Services"><button type="submit" class="btn btn-primary filter">Human Services</button></a></li>
+              <li role="presentation"><a href="/event/Health"><button type="submit" class="btn btn-primary filter">Health</button></a></li>
+              <li role="presentation"><a href="/eventcenter"><button type="submit" class="btn btn-warning clearfilter">Clear Filter</button></a></li>
+              </div>
               </ul>
         </div>
+          <div class="row">
           <div class="list-group events" id="events-ul">
-          <h3>Event Lists</h3>
+          <h3>Events</h3>
+
           <% events.forEach(function(event) { %>
-            <p><a href="/events/<%= event._id %>">Title: <%= event.title %> 
+            <p><img src="<%= event.url %>" class="imgthumbnail">
+            <a href="/events/<%= event._id %>"><%= event.title %>
             <br>
-            Detail: <%= event.detail %>
+            <%= event.detail %>
             <br>
-            Date: <%= event.event_date %></a>
-            <span data-id="<%= event._id %>"></span></p>
+            <%= event.event_date %></a>
+            <span data-id="<%= event._id %>"></span>
+            
+            </p>
             <% }); %>
+
           </div>
+         </div>
         </div>
-         <div class="col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-2">
+
+         <div class="col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-1">
         <div id="datepicker"></div>
-     </div>
+        </div>
         </div>
       </div>  
     </body>
   </html>
+
