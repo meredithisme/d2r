@@ -3,11 +3,14 @@ body {
 	font-weight: 300;
 }
 
-
+h1 {
+	font-size: 48px;
+}
 
 .row {
 	margin-right: 0;
 }
+
 a {
 	text-decoration: none;
 }
@@ -18,26 +21,31 @@ a:hover {
 h3 {
 	font-weight: 300;
 	color: #fff;
-	
 }
 
-.modal-title {
-
+.modal-dialog {
+	background-color: #28008E;
 }
 
 .imgthumbnail {
 	width: 200px;
 	height: 200px;
 }
+
 .np-title {
 	color: #fff;
-	margin-top: -15%;
+	margin-top: -20%;
 	text-align: center;
 }
 
+#createEvent {
+	margin-top: -15%;
+}
 .events {
 	margin-top: 10%;
 }
+
+/* BUTTON FILTERS */
 
 .filter {
 	color: #28008E;
@@ -60,25 +68,38 @@ h3 {
 	border: none;
 }
 
+/* EVENT LIST STYLES */
+
+#mainKeywords {
+	margin: 0 auto;
+	box-shadow: none;
+	padding: 10px;
+}
+#mainKeywords:hover {
+	margin: 0 auto;
+	box-shadow: none;
+	padding: 10px;
+	border-top: 0;
+	border-left: 0;
+}
 .list-group p{
   padding: 15px;
   margin-bottom: 3%;
   border: 1px solid #E1E1E1;
   border-radius: 3px;
   min-height: 100px;
-  background: url(/img/addevent.svg) no-repeat center center fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
- 
+  background: url(/img/addevent.svg) no-repeat center center fixed;
+  background-size: cover; 
+  -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
 }
 
 img.eventThumbnail {
-	height:215px;
-	width: 215px;
+	height:200px;
+	width: 200px;
+	object-fit: auto;
 	object-position: auto;
-
 }
 
 .eventPageHeader {
@@ -87,12 +108,11 @@ img.eventThumbnail {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 350px;
+  height: 450px;
   width: 100%;
   padding: 0;
   margin-left: 0px;
   margin-right: 0px;
-  clear: right;
 }
 
 .col-sm-12 {
@@ -136,8 +156,6 @@ nav, .navbar, .navbar-default {
 
 /* ========= SPLASH PAGE STYLES ========== */
 
-
-
 input.form-control {
 	box-shadow: none;
 	margin-top: 2%;
@@ -148,23 +166,20 @@ input.form-control {
 	border-radius: 0;
 	border-bottom: 1px solid #fff;
 	border-radius: 2px;
-
 }
 
 #newEvent {
-	margin-top: 5%;
-	 
+	margin-top: 5%;	 
 	background-color: transparent;
 	border-right: none;
 	border-left: none;
 	border-top: none;
 	border-radius: 2px;
 	border-bottom: 1px solid #28008E;
-	height: 400px;
-	width: 600px;
 	background-color: #28008E;
 	padding: 20px;
 }
+
 /* ========= DATEPICKER CUSTOM STYLES ========== */
 
 .ui-datepicker {
@@ -259,7 +274,9 @@ input.form-control {
 	background-color: #fff;
 	cursor: default;
 }
-
+.ui-datepicker-buttonpane, .ui-widget-content {
+	display: none;
+}
 
 /* ====== CAROUSEL ======= */
 
@@ -267,7 +284,7 @@ input.form-control {
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-bottom: 40px;
+ /* padding-bottom: 40px;*/
   color: #5a5a5a;
 }
 
@@ -288,7 +305,6 @@ img {
 
 /* Carousel base class */
 .carousel {
-
   height: 500px;
   margin-bottom: 60px;
   width: 100%;
@@ -297,6 +313,7 @@ img {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
+  font-size: 21px;
 }
 
 /* Declare heights because of positioning of img element */
@@ -340,8 +357,27 @@ h4 {
 	font-size: 21px;
   }
 
+	ul.dropdown-menu {
+	text-align: center;
+	width: 400px !important;
+
+	}
+	
+	#createEvent {
+	margin-top: -25%;
+	}
+
+	.carousel-caption {
+		margin-top: -20%;
+	}
+	h1 {
+
+		font-size: 36px;
+	}
+
+	
 	.footer {
-		max-width: 100%;
+		width: 100%;
 
 	}
 }
@@ -350,7 +386,7 @@ h4 {
 /* CARD STYLES ON EVENT-INDEX */
 
 ul.dropdown-menu {
-	width: 500px;
+	width: 610px;
 }
 
 #myModalLabel {
@@ -360,4 +396,24 @@ ul.dropdown-menu {
 	text-align: center;
 	font-size: 28px;
 }
+
+/* ACTIVE STATES BOX SHADOW REMOVAL FROM DEFAULT BOOTSTRAP */
+form:hover,
+.form-control:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+.form-control:focus, 
+input:focus,
+button:focus,
+button:active,
+.form-control:focus,
+button:hover
+{
+	-webkit-box-shadow: none;
+	box-shadow: none;
+    outline:0px !important;
+    -webkit-appearance:none;
+}
+
 
