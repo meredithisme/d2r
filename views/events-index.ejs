@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
-<%- include _head.ejs %>
+  <%- include _head.ejs %>
+
 <body>
+
   <%- include _navbar.ejs %>
   
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-xs-12 col-sm-12">
         <div class="eventPageHeader"></div>
-         <h2><div class="np-title">Connect to a community near you.</div></h2>
+          <div class="np-title carousel-caption">
+            <h1>Connect to a community near you.</h1>
+          </div>
       </div>
     </div>
   
     <div class="col-sm-6 col-sm-offset-3 text-center">
-    <button type="submit" id="createEvent" class="btn btn-primary searchBtn">Create Event</button>
-    </a>
+     <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary filter">Create Event</button>
+      </a>
     </div>
-  </div>
+    </div>
+
+    <!-- ====== NON PROFIT SECTOR FILTER ====== -->
+
       <div class="row events">
         <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
         <div class="dropdown">
-
-             <input id="mainKeywords" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="All Meetups" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*">
-
-             
+             <input id="mainKeywords" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="Filter" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*">
+              
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <div class="col-sm-4">
+                <div class="col-xs-12 col-sm-4">
                 <li role="presentation"><a href="/event/Environment_Animals"><button type="submit" id="Environment_Animals" class="btn btn-primary filter">Environment & Animals</button></a>
                 </li>
                 <li role="presentation"><a href="/event/Civil Rights"><button type="submit" class="btn btn-primary filter">Civil Rights</button></a></li>
@@ -43,25 +48,32 @@
               </div>
               </ul>
         </div>
+
+        <!-- ====== END FILTER ====== -->
+
+
+        <!-- ====== START CREATED EVENTS LIST ====== -->
+
           <div class="row">
-          <div class="list-group events" id="events-ul">
-          <h3>Events</h3>
-
-          <% events.forEach(function(event) { %>
-            <p><img src="<%= event.url %>" class="imgthumbnail">
-            <a href="/events/<%= event._id %>"><%= event.title %>
-            <br>
-            <%= event.detail %>
-            <br>
-            <%= event.event_date %></a>
-            <span data-id="<%= event._id %>"></span>
-            
-            </p>
-            <% }); %>
-
+            <div class="list-group events" id="events-ul">
+              <h3>Events</h3>
+                <% events.forEach(function(event) { %>
+                  <h3 class='eventTitle'>
+                    <p><img src="<%= event.url %>" class="imgthumbnail">
+                    <a href="/events/<%= event._id %>"><%= event.title %>
+                    <br>
+                    <%= event.detail %>
+                    <br>
+                    <%= event.event_date %></a>
+                    <span data-id="<%= event._id %>"></span>
+                    </p>
+                  </h3>
+               <% }); %>
           </div>
          </div>
         </div>
+
+
 
          <div class="col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-1">
         <div id="datepicker"></div>

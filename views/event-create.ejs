@@ -2,14 +2,14 @@
  <html>
  <%- include _head.ejs %>
 
- <body>
+ <body class="bluebg">
 
  <%- include _navbar.ejs %>
  <div class="purplebg">
       <div class="create form">
 
-   	  <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-3">
-        <form id ="newEvent">
+   	  <div class="col-xs-12 col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-3">
+        <div id ="newEvent">
         <a href="/eventcenter"><h3>Create Event</h3></a>
         <div class="text-center">
           <input name="title" type="text" class="form-control" id="eventTitle" placeholder="Event Title">
@@ -29,7 +29,7 @@
             <option value="Health">Health</option>
         </select>
           <button type="submit" class="btn btn-primary">Add Event</button>
-        </form>
+        </div>
         </div>
 
 
@@ -38,11 +38,6 @@
       </div>
     </div> 
   </body>
-  
-    <!-- ==== FOOTER ==== -->
 
-  <% include _foot %>
-
-    <!-- ==== END FOOTER ==== -->  
 
 </html>

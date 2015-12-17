@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav navbar-right">
       <% if (user) { %> 
        
-        <li><a href="#"><%= user.email %></a></li>
+        <li><a href="/profile"><%= user.email %></a></li>
 
         <li><a href="/logout">Logout</a></li>
       <% } else { %>
@@ -35,7 +35,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Log In</h4>
+        <h4 class="modal-title" id="myModalLabel">Log Back Into What Matters</h4>
       </div>
       <div class="modal-body">
         <form id="login-form">
@@ -84,3 +84,15 @@
   </div>
 
 </div>
+
+<script>
+    $(function() {
+        $('#login-modal').on('click', function( e ) {
+            Custombox.open({
+                target: '#login-modal',
+                effect: 'push'
+            });
+            e.preventDefault();
+        });
+    });
+</script>
