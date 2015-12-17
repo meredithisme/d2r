@@ -88,7 +88,9 @@ function buildSearchedEvent(data) {
     // console.log(url)
     $.post('/event/rsvp', {event_id: url}, function(data){
       console.log(data);
+
     });
+     window.location.assign("/eventcenter");
   });
 
   $('#un_rsvp').on("click", function(e){
@@ -99,6 +101,7 @@ function buildSearchedEvent(data) {
     $.post('/event/unrsvp', {event_id: url}, function(data){
       console.log(data);
     })
+    window.location.assign("/eventcenter");
   })
 
 });

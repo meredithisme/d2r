@@ -1,46 +1,38 @@
 <!DOCTYPE html>
 <html>
 <%- include _head.ejs %>
-
 <body>
+	<%- include _navbar.ejs %>
+	<div>
+		<br>
+		<br>
+		<br><br>
+		<div class="events">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-4">
+				<p>Details: <%= event.detail %></p>
+				<p>Date: <%= event.event_date %></p>
 
-  <%- include _navbar.ejs %>
+				<p>Location: <%= event.location %></p>
+				<p>Created at: <%= event.created %></p>
+				<% if (user) { %>
+			
+				<% if (!rsvp) { %>
+				<button type= "submit" class="btn btn-danger" id="rsvp">RSVP</button>
+				<% }else{%>
+				<button type= "submit" class="btn btn-warning" id="un_rsvp">Cancel RSVP</button>
+				<% } %>
+				<% }else {%>
+			
+				<h4><a href="#signup-modal" data-toggle="modal" class="sign-up">Please Sign Up</a></h4>
+				<% } %>
 
-	<body><br>
-	<!-- <div class="container"> -->
-		<div class="row-fluid">
-			<div class="text-center">
-				<h1 class="responsive"><%= event.title %></h1>
-			</div><hr>
 
-		<!-- ==== MAIN CITY SPLASH PHOTO ===== -->
-
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<div class="eventImage">
-					<img src="<%= event.url %>"/>
-				</div>
+				<h4><a href="/eventcenter">Create Non-Profit Event</a></h4>	  
 			</div>
 		</div>
+	</div>
 
-  <h1><a href="/eventcenter">Create Non-Profit Event</a></h1>
-  
-   <div class="events">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-4">
-      <p>Details: <%= event.detail %></p>
-      <p>Date: <%= event.event_date %></p>
-      
-      <p>Location: <%= event.location %></p>
-      <p>Created at: <%= event.created %></p>
-		<% if (!rsvp) { %>
-			<button type= "submit" class="btn btn-danger" id="rsvp">RSVP</button>
-		<% }else{%>
-			<button type= "submit" class="btn btn-warning" id="un_rsvp">Cancel RSVP</button>
-		<% } %>	  
-    </div>
-  </div>
-</div>
+
 </body>
-
-   
 </html>
 
