@@ -20,8 +20,14 @@
       <!-- beginning of panel body -->
       <!--  <div class="panel panel-default"> -->
       <div class="panel-body">
-       <p class="joinedat">Organization name: <%= user.organization_name %></p>
-       <p class="joinedat">Organization Url: <%= user.organizationUrl %></p>
+      <% if (user) { %>
+        <p class="joinedat">Organization name: <%= user.organization_name %></p>
+        <p class="joinedat">Organization Url: <%= user.organizationUrl %></p>
+      <% }else{ %>
+        <p>Name:</p>
+        <p>Time:</p>
+      <% } %>
+     
        <ul class="panel-menu">
         <li class="panel-menu-item">
          <a href="#profile-modal" class="text-inherit" data-toggle="modal">
@@ -46,17 +52,22 @@
    <ul class="list-group media-list media-list-stream">
     <li class="media list-group-item p-a">
      <div class="inbox text-center">Up Coming Events</div>
-     <% events.forEach(function(event) { %>
-       <p><img src="<%= event.url %>" class="imgthumbnail">
+     <% if (user) { %>
+
+      <% events.forEach(function(event) { %>
+      <p><img src="<%= event.url %>" class="imgthumbnail">
        <a href="/events/<%= event._id %>"><%= event.title %>
-       <br>
-       <%= event.detail %>
-       <br>
-       <%= event.event_date %></a>
-       <span data-id="<%= event._id %>"></span>
-       
+         <br>
+         <%= event.detail %>
+         <br>
+         <%= event.event_date %></a>
+         <span data-id="<%= event._id %>"></span>
        </p>
        <% }); %>
+
+       <%} else { %>
+       <p>No Event</p>
+       <% } %>
    </li>
  </ul>
 </div>

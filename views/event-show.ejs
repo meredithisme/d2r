@@ -15,14 +15,16 @@
 				<p>Location: <%= event.location %></p>
 				<p>Created at: <%= event.created %></p>
 				<% if (user) { %>
-			
-				<% if (!rsvp) { %>
-				<button type= "submit" class="btn btn-danger" id="rsvp">RSVP</button>
-				<% }else{%>
-				<button type= "submit" class="btn btn-warning" id="un_rsvp">Cancel RSVP</button>
+				<% if (user.is_organzation == true) { %>
+				<p>Thanks for Supporting the Community</p>
+				<% } else { %>
+					<% if (!rsvp) { %>
+					<button type= "submit" class="btn btn-danger" id="rsvp">RSVP</button>
+					<% }else{%>
+					<button type= "submit" class="btn btn-warning" id="un_rsvp">Cancel RSVP</button>
+					<% } %>
 				<% } %>
-				<% }else {%>
-			
+				<% }else {%>			
 				<h4><a href="#signup-modal" data-toggle="modal" class="sign-up">Please Sign Up</a></h4>
 				<% } %>
 

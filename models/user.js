@@ -10,7 +10,8 @@ var Rsvp = require('./rsvp.js');
 var userSchema = new Schema({
   email: { type: String,
            required: true,
-           unique: true
+           unique: true,
+           match: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
          },
   passwordDigest: String,
   events: [{ type: Schema.ObjectId, ref: 'Event' }],

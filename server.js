@@ -19,9 +19,7 @@ app.use(session({
   cookie: { maxAge: 60 * 120 * 2000 }
 }));
 
-// express-session has a touch option to update max age
 // landing
-
 //Login Signup Routes
 app.get('/', function(req, res) {
   db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
@@ -34,17 +32,14 @@ app.get('/', function(req, res) {
   });
 });
 
-app.get('/signup', function (req, res) {
-  res.render('signup');
-});
-
 app.post('/user', function (req, res) {
   console.log(req.body);
   db.User.createSecure(req.body.email, req.body.password, function (err, newUser) {
-    req.session.userId = newUser._id;
+    
     if(err){
-      console.log(err);
+      res.json(err);
     } else {
+      req.session.userId = newUser._id;
       res.json(newUser);
     }
   });
@@ -52,13 +47,12 @@ app.post('/user', function (req, res) {
 
 // authenticate the user and set the session
 app.post('/sessions', function (req, res) {
-  console.log('attempted signin: ', req.body);
+  // console.log('attempted signin: ', req.body);
   // call authenticate function to check if password user entered is correct
   db.User.authenticate(req.body.email, req.body.password, function (err, loggedInUser) {
     if (err){
       console.log('authentication error: ', err);
       res.status(500).send();
-      res.redirect('/');
     } else {
       console.log('setting session user id ', loggedInUser._id);
       req.session.userId = loggedInUser._id;
@@ -213,7 +207,6 @@ app.get('/profile', function (req, res){
               }
             })
           });
-
         })
       }
     });
@@ -221,6 +214,7 @@ app.get('/profile', function (req, res){
 
 app.post('/organizationprofile', function (req, res){
   db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    console.log(req.session.userId);
     if (err) {
       console.log('user not exist:', err);
       res.redirect('/profile');

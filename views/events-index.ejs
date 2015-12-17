@@ -18,8 +18,12 @@
   
     <div class="col-sm-6 col-sm-offset-3 text-center">
     <% if (user) { %>
+      <% if (user.is_organzation == true) { %>
      <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary filter">Create Event</button>
       </a>
+      <% }else{ %>
+      <p>RSVP and volunteer for your favorite non profit organizations</p>
+      <% } %>
     <% }else {%>
     <a href="#signup-modal" data-toggle="modal" class="sign-up"><button type="submit" id="createEvent" class="btn btn-primary filter">Sign up to create event</button></a>
     <% } %>
@@ -32,7 +36,7 @@
       <div class="row events">
         <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
         <div class="dropdown">
-             <input id="mainKeywords" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="Filter" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*">
+             <input id="mainKeywords" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="Filter" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*" data-toggle="dropdown">
               
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <div class="col-xs-12 col-sm-4">
@@ -77,8 +81,6 @@
           </div>
          </div>
         </div>
-
-
 
          <div class="col-xs-2 col-xs-offset-1 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-1">
         <div id="datepicker"></div>
