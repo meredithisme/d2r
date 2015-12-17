@@ -80,6 +80,26 @@ function buildSearchedEvent(data) {
     changeMonth: true,
     changeYear: true
   });
+
+  $('#rsvp').on("click", function(e){
+    e.preventDefault();
+    var formData = window.location.href.split('/');
+    var url = formData[formData.length - 1];
+    // console.log(url)
+    $.post('/event/rsvp', {event_id: url}, function(data){
+      console.log(data);
+    });
+  });
+
+  $('#un_rsvp').on("click", function(e){
+    e.preventDefault();
+    var formData = window.location.href.split('/');
+    var url = formData[formData.length - 1];
+    // console.log(url)
+    $.post('/event/unrsvp', {event_id: url}, function(data){
+      console.log(data);
+    })
+  })
 });
 
 

@@ -76,7 +76,7 @@ app.get('/eventcenter', function (req, res) {
   db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
     if (err) {
       console.log('user not exist:', err);
-      res.redirect('/profile');
+      
     }else{
       db.Event.find({}, function(err, events){
         if (err) { res.json(err); }
@@ -100,7 +100,7 @@ app.get('/event/new', function (req, res){
     if (err) {
       console.log('user not exist:', err);
     }else{
-      console.log("user logged in: ", currentUser);
+      // console.log("user logged in: ", currentUser);
       res.render('event-create', {user: currentUser});
     }
   });
@@ -121,14 +121,17 @@ app.get('/events/:_id', function (req, res){
   db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
     if (err) {
       console.log('user not exist:', err);
-    }else{
-      console.log("user logged in: ", currentUser);
     }
     db.Event.findById(req.params._id).populate('rsvp').exec(function (err, event){
       if (err) {
         res.json(err);
       }else{
-        res.render('event-show', {event: event, user: currentUser});
+        db.Rsvp.findOne({user: req.session.userId, event: req.params._id}, function (err, rsvp){
+          if (err){
+            console.log(err)
+          }
+          res.render('event-show', {event: event, user: currentUser, rsvp: rsvp});  
+        })
       }
     });
   });
@@ -147,13 +150,21 @@ app.delete('/events/:_id', function (req, res){
 });
 
 app.get('/event/:category', function (req, res){
-  db.Event.find({category: req.params.category}, function (err, events){
-    if (err) return console.error(err);
-    console.log('err check');
-    if (events) {
-      res.render('events-index', {events: events});
-    }
-  });
+  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    if (err){
+        //console.log('database error: ', err);
+        res.redirect('/eventcenter');
+      } else {
+        // console.log('loading profile of logged in user: ', currentUser);
+        db.Event.find({category: req.params.category}, function (err, events){
+          if (err) return console.error(err);
+          console.log('err check');
+          if (events) {
+            res.render('events-index', {events: events, user: currentUser});
+          }
+        });
+      }
+    });
 });
 
 app.post('/events-date', function (req, res){
@@ -176,11 +187,30 @@ app.get('/profile', function (req, res){
   console.log(req.params);
   db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
     if (err){
-        //console.log('database error: ', err);
-        res.redirect('/eventcenter');
+        console.log('database error: ', err);
       } else {
-        console.log('loading profile of logged in user: ', currentUser);
-        res.render('profile', {user: currentUser})
+        db.Rsvp.find({user: currentUser}, function (err, rsvpList){
+          if (err) {
+            res.json(err);
+          }
+          //console.log(rsvp)
+          var events = [];
+          rsvpList.forEach(function(rsvp){
+            console.log(rsvp.event);
+            db.Event.findOne({_id: rsvp.event}, function (err, event){
+              if (err) {
+                res.json(err);
+              }else{
+                events.push(event);
+                console.log("executing mongo");
+                if(events.length == rsvpList.length) {
+                  console.log("executing front");
+                  res.render('profile', {user: currentUser, events: events})
+                }
+              }
+            })
+          })
+        })
       }
     });
 });
@@ -221,4 +251,51 @@ app.post('/volunteerlprofile', function (req, res){
   })
 })
 
+app.post('/event/rsvp', function (req, res){
+  // console.log("event id:", req.body)
+  // console.log(req.session.userId)
+  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    if (err) {
+      console.log(err);
+    }else{
+      db.Event.findOne({_id: req.body.event_id}, function (err, event){
+        if (err) {
+          console.log(err);
+        }else{
+          db.Rsvp.create({event: event, user: currentUser}, function (err){
+            if (err) {
+              console.log(err);
+            }else{
+              console.log("Rsvp Saved");
+            }
+          })
+        }
+      })
+    }
+  });
+});
+
+app.post('/event/unrsvp', function (req, res){
+  // console.log("event id:", req.body)
+  // console.log(req.session.userId)
+  db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    if (err) {
+      console.log(err);
+    }else{
+      db.Event.findOne({_id: req.body.event_id}, function (err, event){
+        if (err) {
+          console.log(err);
+        }else{
+          db.Rsvp.remove({event: event, user: currentUser}, function (err){
+            if (err) {
+              console.log(err);
+            }else{
+              console.log("Rsvp deleted");
+            }
+          })
+        }
+      })
+    }
+  });
+});
 app.listen(process.env.PORT || 3000);
