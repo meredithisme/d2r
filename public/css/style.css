@@ -32,11 +32,32 @@ h3 {
 	margin-top: 10%;
 }
 
+.filter {
+	color: #28008E;
+	font-weight: 300;
+	background-color: #fff;
+	border: none;
+	padding: 7px;
+	margin: 7px;
+	text-align: center;
+}
+
+.filter:hover {
+	background-color: #28008E;
+	color: #fff;
+}
+
+.clearfilter {
+	background-color: #28008E;
+	color: #fff;
+	border: none;
+}
+
 .list-group p{
   padding: 15px;
   margin-bottom: 3%;
-  border: 1px solid #C3C3C3;
-  border-radius: 2px;
+  border: 1px solid #E1E1E1;
+  border-radius: 3px;
   min-height: 100px;
  
 }
@@ -103,19 +124,7 @@ nav, .navbar, .navbar-default {
 
 /* ========= SPLASH PAGE STYLES ========== */
 
-.searchBtn {
-	margin-top: -15%;
-	margin: 0 auto;
-	text-align: center;
-	background-color: #00CCFF;
-	color: #fff;
-	border: none;
-}
 
-.searchBtn:hover {
-	background-color: #28008E;
-	color: #fff;
-}
 
 input.form-control {
 	box-shadow: none;
