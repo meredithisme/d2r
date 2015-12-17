@@ -10,18 +10,20 @@
      <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
        <div class="panel panel-default panel-profile">
-        <div class="panel-heading" style="background-image: url(http://i.imgur.com/YoRr1sU.jpg)">
+        <div class="panel-heading" style="background-image: url(http://i.imgur.com/pIln7gw.jpg)">
          <div class="panel-body text-center">  	
           <img class="img-circle media-object">
           <h3 class="profile-header-user"></h3>
         </div>
-      </div>
+      
       <!-- closes panel header -->
       <!-- beginning of panel body -->
-      <!--  <div class="panel panel-default"> -->
-      <div class="panel-body text-center">
-       <p class="joinedat">Organization name: <%= user.organization_name %></p>
-       <p class="joinedat">Organization Url: <%= user.organizationUrl %></p>
+      
+      
+       <h5 class="joinedat text-center">Non-Profit Name: <%= user.organization_name %></p>
+       <h5 class="joinedat text-center">Website <%= user.organizationUrl %></p>
+       </div>
+       <div class="panel-body text-center">
        <ul class="panel-menu">
         
          <a href="#profile-modal" class="text-inherit" data-toggle="modal">
