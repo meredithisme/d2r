@@ -151,7 +151,6 @@ app.delete('/events/:_id', function (req, res){
 });
 
 app.get('/event/:category', function (req, res){
-<<<<<<< HEAD
   db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
     if (err){
         //console.log('database error: ', err);
@@ -167,23 +166,6 @@ app.get('/event/:category', function (req, res){
         });
       }
     });
-=======
- db.User.findOne({_id: req.session.userId}, function (err, currentUser) {
-   if (err){
-       //console.log('database error: ', err);
-       res.redirect('/eventcenter');
-     } else {
-       // console.log('loading profile of logged in user: ', currentUser);
-       db.Event.find({category: req.params.category}, function (err, events){
-         if (err) return console.error(err);
-         console.log('err check');
-         if (events) {
-           res.render('events-index', {events: events, user: currentUser});
-         }
-       });
-     }
-   });
->>>>>>> master
 });
 
 app.post('/events-date', function (req, res){
