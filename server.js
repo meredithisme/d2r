@@ -128,6 +128,7 @@ app.get('/events/:_id', function (req, res){
   });
 });
 
+
 //should not be an delete route, will need to change in the future
 app.delete('/events/:_id', function (req, res){
   console.log("event id is", req.params);

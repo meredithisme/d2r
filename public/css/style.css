@@ -4,6 +4,7 @@ body {
 }
 
 h1 {
+	margin-top: -20%;
 	font-size: 48px;
 }
 
@@ -41,8 +42,9 @@ h3 {
 #createEvent {
 	margin-top: -15%;
 }
+
 .events {
-	margin-top: 10%;
+	margin-top: 6%;
 }
 
 /* BUTTON FILTERS */
@@ -82,6 +84,7 @@ h3 {
 	border-top: 0;
 	border-left: 0;
 }
+
 .list-group p{
   padding: 15px;
   margin-bottom: 3%;
@@ -193,10 +196,12 @@ input.form-control {
 	color: #330099;
 	font-family: 'Open Sans', sans-serif;
 }
+
 .ui-datepicker a,
 .ui-datepicker a:hover {
 	text-decoration: none;
 }
+
 .ui-datepicker a:hover,
 .ui-datepicker td:hover a {
 	color: #2A6496;
@@ -205,13 +210,16 @@ input.form-control {
 	     -o-transition: color 0.1s ease-in-out;
 	        transition: color 0.1s ease-in-out;
 }
+
 .ui-datepicker .ui-datepicker-header {
 	margin-bottom: 4px;
 	text-align: center;
 }
+
 .ui-datepicker .ui-datepicker-title {
 	font-weight: 700;
 }
+
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
 	cursor: default;
@@ -224,32 +232,40 @@ input.form-control {
 	margin-top: 2px;
 	width: 30px;
 }
+
 .ui-datepicker .ui-datepicker-prev {
 	float: left;
 	text-align: left;
 }
+
 .ui-datepicker .ui-datepicker-next {
 	float: right;
 	text-align: right;
 }
+
 .ui-datepicker .ui-datepicker-prev:before {
 	content: "\e079";
 }
+
 .ui-datepicker .ui-datepicker-next:before {
 	content: "\e080";
 }
+
 .ui-datepicker .ui-icon {
 	display: none;
 }
+
 .ui-datepicker .ui-datepicker-calendar {
   table-layout: fixed;
 	width: 100%;
 }
+
 .ui-datepicker .ui-datepicker-calendar th,
 .ui-datepicker .ui-datepicker-calendar td {
 	text-align: center;
 	padding: 4px 0;
 }
+
 .ui-datepicker .ui-datepicker-calendar td {
 	border-radius: 4px;
 	-webkit-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
@@ -257,30 +273,35 @@ input.form-control {
 	     -o-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 	        transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
+
 .ui-datepicker .ui-datepicker-calendar td:hover {
 	background-color: #eee;
 	cursor: pointer;
 }
+
 .ui-datepicker .ui-datepicker-calendar td a {
 	text-decoration: none;
 }
+
 .ui-datepicker .ui-datepicker-current-day {
 	background-color: #00CCFF;
 }
+
 .ui-datepicker .ui-datepicker-current-day a {
 	color: #fff
 }
+
 .ui-datepicker .ui-datepicker-calendar .ui-datepicker-unselectable:hover {
 	background-color: #fff;
 	cursor: default;
 }
+
 .ui-datepicker-buttonpane, .ui-widget-content {
 	display: none;
 }
 
 /* ====== CAROUSEL ======= */
 
--------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
 body {
@@ -298,12 +319,14 @@ img {
 	 width: 100%;
   	overflow: hidden;
 }
+
 .eventImage {
 	margin-bottom: 3%;
 	margin: 0 auto;
 }
 
 /* Carousel base class */
+
 .carousel {
   height: 500px;
   margin-bottom: 60px;
@@ -311,18 +334,20 @@ img {
   background-size: cover;
 }
 /* Since positioning the image, we need to help out the caption */
+
 .carousel-caption {
   z-index: 10;
   font-size: 21px;
 }
 
 /* Declare heights because of positioning of img element */
+
 .carousel .item {
   height: 500px;
   background-color: #777;
   max-width: 100%;
-
 }
+
 .carousel-inner > .item > img {
   position: absolute;
   top: 0;
@@ -347,22 +372,21 @@ h4 {
 
 @media (max-width: 768px) {
 
-  .carousel-caption p {
-    margin-bottom: 20px;
-    font-size: 21px;
-    line-height: 1.4;
-  }
-
-  .np-title {
+	.carousel-caption p {
+	margin-bottom: 20px;
 	font-size: 21px;
-  }
+	line-height: 1.4;
+	}
+
+	.np-title {
+	font-size: 21px;
+	}
 
 	ul.dropdown-menu {
 	text-align: center;
 	width: 400px !important;
-
 	}
-	
+
 	#createEvent {
 	margin-top: -25%;
 	}
@@ -370,15 +394,13 @@ h4 {
 	.carousel-caption {
 		margin-top: -20%;
 	}
-	h1 {
 
+	h1 {
 		font-size: 36px;
 	}
 
-	
 	.footer {
 		width: 100%;
-
 	}
 }
 
@@ -398,6 +420,7 @@ ul.dropdown-menu {
 }
 
 /* ACTIVE STATES BOX SHADOW REMOVAL FROM DEFAULT BOOTSTRAP */
+
 form:hover,
 .form-control:hover, 
 input:hover, 
