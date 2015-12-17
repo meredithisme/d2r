@@ -28,14 +28,24 @@
     <a href="#signup-modal" data-toggle="modal" class="sign-up"><button type="submit" id="createEvent" class="btn btn-primary filter">Sign up to create event</button></a>
     <% } %>
 
+
     </div>
-    </div>
+  </div>
 
     <!-- ====== NON PROFIT SECTOR FILTER ====== -->
-
+      
       <div class="row events">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
+      <p class="filterpg">FILTER BY NON-PROFIT CATEGORIES</p>
+      </div>
+         <div class="col-xs-2 col-xs-offset-1 col-sm-3 col-md-3">
+        <p class="filterpg">EVENTS BY DATE</p>
+        </div>
+      <br>
+      <hr>
         <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
         <div class="dropdown">
+<<<<<<< HEAD
              <input id="mainKeywords" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="Filter" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*" data-toggle="dropdown">
               
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -55,7 +65,17 @@
               <li role="presentation"><a href="/event/Health"><button type="submit" class="btn btn-primary filter">Health</button></a></li>
               <li role="presentation"><a href="/eventcenter"><button type="submit" class="btn btn-warning clearfilter">Clear Filter</button></a></li>
               </div>
-              </ul>
+              <div class="col-sm-4">
+             <li role="presentation"><a href="/event/Education"><button type="submit" class="btn btn-primary filter">Education</button></a></li>
+             <li role="presentation"><a href="/event/Public_Sector"><button type="submit" class="btn btn-primary filter">Public Sector</button></a></li>
+             <li role="presentation"><a href="/event/International"><button type="submit" class="btn btn-primary filter">International</button></a></li>
+            </div>
+            <div class='col-sm-4'>
+            <li role="presentation"><a href="/event/Human_Services"><button type="submit" class="btn btn-primary filter">Human Services</button></a></li>
+            <li role="presentation"><a href="/event/Health"><button type="submit" class="btn btn-primary filter">Health</button></a></li>
+            <li role="presentation"><a href="/eventcenter"><button type="submit" class="btn btn-warning clearfilter">Clear Filter</button></a></li>
+          </div>
+         </ul>
         </div>
 
         <!-- ====== END FILTER ====== -->
@@ -69,7 +89,7 @@
                 <% events.forEach(function(event) { %>
                   <h3 class='eventTitle'>
                     <p><img src="<%= event.url %>" class="imgthumbnail">
-                    <a href="/events/<%= event._id %>"><%= event.title %>
+                    <a href="/events/<%= event._id %>" class="eventListStyles"><%= event.title %>
                     <br>
                     <%= event.detail %>
                     <br>

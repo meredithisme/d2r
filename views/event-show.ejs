@@ -3,10 +3,16 @@
 <%- include _head.ejs %>
 <body>
 	<%- include _navbar.ejs %>
-	<div>
-		<br>
-		<br>
-		<br><br>
+	
+		<div class="container">
+			<div class="row">
+				<div class="eventImage">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<img src=" <%= event.url %>">
+					</div>
+				</div>
+			</div>
+
 		<div class="events">
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-4">
 				<p>Details: <%= event.detail %></p>
@@ -29,12 +35,10 @@
 				<% } %>
 
 
-				<h4><a href="/eventcenter">Create Non-Profit Event</a></h4>	  
+				<h4><a href="/eventcenter">Back to Events</a></h4>	  
 			</div>
 		</div>
 	</div>
-
-	<h1><a href="/eventcenter">Create Non-Profit Event</a></h1>
 
 
 </body>

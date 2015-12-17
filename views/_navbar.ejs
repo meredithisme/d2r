@@ -15,8 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       <% if (user) { %> 
-       
-        <li><a href="/profile"><%= user.email %></a></li>
+        <li><a href="/profile"><div class="glyphicon glyphicon-user"></div></a></li>
 
         <li><a href="/logout">Logout</a></li>
       <% } else { %>
@@ -85,14 +84,3 @@
 
 </div>
 
-<script>
-    $(function() {
-        $('#login-modal').on('click', function( e ) {
-            Custombox.open({
-                target: '#login-modal',
-                effect: 'push'
-            });
-            e.preventDefault();
-        });
-    });
-</script>

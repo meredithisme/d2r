@@ -31,6 +31,8 @@ h3 {
 .imgthumbnail {
 	width: 200px;
 	height: 200px;
+	border-radius: 2px;
+	display: block;
 }
 
 .np-title {
@@ -91,7 +93,7 @@ h3 {
   border: 1px solid #E1E1E1;
   border-radius: 3px;
   min-height: 100px;
-  background: url(/img/addevent.svg) no-repeat center center fixed;
+  background-color: #28008E;
   background-size: cover; 
   -webkit-background-size: cover;
   	-moz-background-size: cover;
@@ -102,7 +104,7 @@ img.eventThumbnail {
 	height:200px;
 	width: 200px;
 	object-fit: auto;
-	object-position: auto;
+	/*object-position: auto;*/
 }
 
 .eventPageHeader {
@@ -123,12 +125,17 @@ img.eventThumbnail {
 	padding: 0;
 }
 
-.container-fluid {
+.container-fluid, .container {
 	margin-left: 0;
 	padding: 0;
 	margin-right: 0;
 }
 
+.goDown {
+	margin-top: 5%;
+	margin-left: 0px;
+	margin-right: 0px;
+}
 
 /* ========= NAV STYLES ========== */
 
@@ -149,6 +156,7 @@ nav, .navbar, .navbar-default {
 	margin-bottom: 0;
 	color: #fff;
 	padding-bottom: 0;
+	clear: right;
 }
 
 .navbar-header {
@@ -167,7 +175,7 @@ input.form-control {
 	border-left: none;
 	border-top: none;
 	border-radius: 0;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #2A1169;
 	border-radius: 2px;
 }
 
@@ -182,6 +190,7 @@ input.form-control {
 	background-color: #28008E;
 	padding: 20px;
 }
+
 
 /* ========= DATEPICKER CUSTOM STYLES ========== */
 
@@ -392,18 +401,17 @@ h4 {
 	}
 
 	.carousel-caption {
-		margin-top: -20%;
+		margin-top: -30%;
 	}
 
 	h1 {
 		font-size: 36px;
 	}
 
-	.footer {
+	.footerStyle {
 		width: 100%;
 	}
 }
-
 
 /* CARD STYLES ON EVENT-INDEX */
 
@@ -417,6 +425,14 @@ ul.dropdown-menu {
 	font-style: italic;
 	text-align: center;
 	font-size: 28px;
+}
+
+.cardOneText {
+	color: #888;
+	text-align: justify;
+	font-size: 18px;
+	font-weight: 300;
+	font-family: 'Lato', 'Avenir', sans-serif;
 }
 
 /* ACTIVE STATES BOX SHADOW REMOVAL FROM DEFAULT BOOTSTRAP */
@@ -439,4 +455,151 @@ button:hover
     -webkit-appearance:none;
 }
 
+.inbox {
+	font-size: 28px;
+	color: #1A083A;
+	font-weight: 400;
+	font-family: 'Lato', sans-serif;
+}
 
+/* Button */
+.button {
+  margin-top: -15%;
+  position: relative;
+  width: 140px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 2px;
+  font-size: 1.1em;
+  background-color: #fff;
+  color: #646464;
+}
+
+.buttonUp {
+	margin-top: -5%;
+}
+
+.button > paper-ripple {
+  border-radius: 2px;
+  overflow: hidden;
+}
+.button.blue {
+  background-color: #28008E;
+  color: #fff;
+}
+.button.raised {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.button.raised:active {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+.icon-button > paper-ripple {
+  overflow: hidden;
+  color: #646464;
+}
+.icon-button.blue > core-icon::shadow path {
+  fill: #4285f4;
+}
+.icon-button.blue > paper-ripple {
+  color: #4285f4;
+}
+
+.glyphicon-user {
+	color: #1A083A;
+}
+
+.homelessPop {
+	color: #fff;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	margin-top: 28%;
+	font-size: 48px;
+	padding: 20%;
+}
+
+.eventListStyles {
+	color: #fff;
+	display: inline-block;
+}
+
+.backContent {
+	margin-top: 38%;
+	color: #fff;
+	text-align: justify;
+}
+
+.backContentTwo {
+	margin-top: 20%;
+	color: #fff;
+	text-align: justify;
+	font-size: 28px;
+	padding: 10px;
+	font-weight: 500;
+}
+
+.panel-heading {
+	height: 300px;
+}
+
+.filterpg {
+	font-size: 18px;
+	color: #1A083A;
+}
+
+.eventImage {
+	margin: 0 auto;
+	width: 100%;
+	height: 400px;
+}
+
+.joinedat {
+	color: #fff;
+	font-family: 'Lato', sans-serif;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: 300;
+}
+/* ==== INDEX PAGE FADE IN SUBHEADER ==== */
+
+.title {
+	opacity: 0;
+	animation-name: fadein;
+	 animation-duration: 1s;
+	 animation-iteration-count: 1;
+	 animation-direction: alternate;
+	 animation-timing-function: ease-in;
+	 animation-fill-mode: forwards;
+	 animation-delay: 1s;
+	 
+	 -webkit-animation-name: fadein;
+	 -webkit-animation-duration: 1s;
+	 -webkit-animation-iteration-count: 1;
+	 -webkit-animation-direction: alternate;
+	 -webkit-animation-timing-function: ease-in;
+	 -webkit-animation-fill-mode: forwards;
+	 -webkit-animation-delay: 1s;
+}
+
+/* FADE IN ANIMATION */
+
+@-webkit-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
