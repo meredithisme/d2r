@@ -14,15 +14,8 @@ $(document).ready(function(){
 
 	$('#org').tab('show')
 
-	$(function () {
-		$('[data-toggle="popover"]').popover({
-			trigger: 'hover',
-			'placement': 'right'
-		}); 
-	});
-
 	$(".dropdown-toggle").dropdown();
-
+	
 	$("#organizationForm").on("submit", function(e){
 	  // prevent form submission
 	  e.preventDefault();

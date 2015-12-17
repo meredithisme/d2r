@@ -14,6 +14,8 @@ $(document).ready(function() {
       })
       .error(function (data) {
         console.log("failed to create a new user");
+        alert("sign up failed");
+        window.location.href = '/'
 
       });
     });
@@ -34,8 +36,10 @@ $(document).ready(function() {
       .error(function (data) {
         console.log(data);
         alert("sign up failed");
+        window.location.href = '/';
       });
     });
+
     $('#logout').click(function (e) {
       e.preventDefault();
 

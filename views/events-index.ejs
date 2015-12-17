@@ -16,18 +16,18 @@
       </div>
     </div>
   
-
-    <div class="col-xs-offset-3 col-sm-2 col-sm-offset-5 text-center buttonUp">
-     <% if (user) { %>
-      <a href="/event/new">
-        <div class="button raised blue">
-          <div class="center" fit>Create Event</div>
-          <paper-ripple fit></paper-ripple>
-        </div>
-        </a>
-          <% }else {%>
-          <a href="#signup-modal" data-toggle="modal" class="sign-up"><button type="submit" id="createEvent" class="btn btn-primary filter">Sign up to create event</button></a>
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+    <% if (user) { %>
+      <% if (user.is_organzation == true) { %>
+     <a href="/event/new"><button type="submit" id="createEvent" class="btn btn-primary filter">Create Event</button>
+      </a>
+      <% }else{ %>
+      <p>RSVP and volunteer for your favorite non profit organizations</p>
       <% } %>
+    <% }else {%>
+    <a href="#signup-modal" data-toggle="modal" class="sign-up"><button type="submit" id="createEvent" class="btn btn-primary filter">Sign up to create event</button></a>
+    <% } %>
+
 
     </div>
   </div>
@@ -45,25 +45,25 @@
       <hr>
         <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
         <div class="dropdown">
-         <input id="mainKeywords" data-toggle="dropdown" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="Filter" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*">
-          
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <div class="col-xs-12 col-sm-4">
-              <li role="presentation"><a href="/event/Environment_Animals"><button type="submit" id="Environment_Animals" class="btn btn-primary filter">Environment & Animals</button></a>
-              </li>
-              <li role="presentation"><a href="/event/Civil Rights"><button type="submit" class="btn btn-primary filter">Civil Rights</button></a></li>
-              <li role="presentation"><a href="/event/Arts_Culture"><button type="submit" class="btn btn-primary filter">Arts & Culture</button></a></li>
+             <input id="mainKeywords" class="dropdown-toggle ellipsize " type="text" name="keywords" size="30" maxlength="100" value="" title="" placeholder="Filter" autocomplete="off" autocorrect="on" spellcheck="true" data-key="*" data-name="*" data-toggle="dropdown">
+              
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <div class="col-xs-12 col-sm-4">
+                <li role="presentation"><a href="/event/Environment_Animals"><button type="submit" id="Environment_Animals" class="btn btn-primary filter">Environment & Animals</button></a>
+                </li>
+                <li role="presentation"><a href="/event/Civil Rights"><button type="submit" class="btn btn-primary filter">Civil Rights</button></a></li>
+                <li role="presentation"><a href="/event/Arts_Culture"><button type="submit" class="btn btn-primary filter">Arts & Culture</button></a></li>
+                </div>
+                <div class="col-sm-4">
+               <li role="presentation"><a href="/event/Education"><button type="submit" class="btn btn-primary filter">Education</button></a></li>
+               <li role="presentation"><a href="/event/Public_Sector"><button type="submit" class="btn btn-primary filter">Public Sector</button></a></li>
+               <li role="presentation"><a href="/event/International"><button type="submit" class="btn btn-primary filter">International</button></a></li>
               </div>
-              <div class="col-sm-4">
-             <li role="presentation"><a href="/event/Education"><button type="submit" class="btn btn-primary filter">Education</button></a></li>
-             <li role="presentation"><a href="/event/Public_Sector"><button type="submit" class="btn btn-primary filter">Public Sector</button></a></li>
-             <li role="presentation"><a href="/event/International"><button type="submit" class="btn btn-primary filter">International</button></a></li>
-            </div>
-            <div class='col-sm-4'>
-            <li role="presentation"><a href="/event/Human_Services"><button type="submit" class="btn btn-primary filter">Human Services</button></a></li>
-            <li role="presentation"><a href="/event/Health"><button type="submit" class="btn btn-primary filter">Health</button></a></li>
-            <li role="presentation"><a href="/eventcenter"><button type="submit" class="btn btn-warning clearfilter">Clear Filter</button></a></li>
-          </div>
+              <div class='col-sm-4'>
+              <li role="presentation"><a href="/event/Human_Services"><button type="submit" class="btn btn-primary filter">Human Services</button></a></li>
+              <li role="presentation"><a href="/event/Health"><button type="submit" class="btn btn-primary filter">Health</button></a></li>
+              <li role="presentation"><a href="/eventcenter"><button type="submit" class="btn btn-warning clearfilter">Clear Filter</button></a></li>
+              </div>
          </ul>
         </div>
 
