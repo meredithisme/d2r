@@ -10,7 +10,7 @@
 	<!-- <div class="container"> -->
 		<div class="row-fluid">
 			<div class="text-center">
-				<h1 class="responsive">Transforming your travel experience.</h1>
+				<h1 class="responsive">Welcome! Check out <%= event.title %></h1>
 			</div><hr>
 
 		<!-- ==== MAIN CITY SPLASH PHOTO ===== -->
@@ -25,8 +25,7 @@
   <h1><a href="/eventcenter">Create Non-Profit Event</a></h1>
   
    <div class="events">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-2">
-      <p>Event Title is: <%= event.title %></p>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-4">
       <p>Details: <%= event.detail %></p>
       <p>Date: <%= event.event_date %></p>
       
@@ -39,9 +38,5 @@
 </div>
 </body>
 
-    <!-- ==== FOOTER ==== -->
-
-  <% include _foot %>
-
-    <!-- ==== END FOOTER ==== -->  
+   
 </html>
